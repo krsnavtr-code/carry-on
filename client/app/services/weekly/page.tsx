@@ -90,10 +90,10 @@ export default function WeeklyRentals(): React.ReactElement {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-gray-100 transition-colors duration-300 py-16 lg:py-24">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-24">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-gray-100 transition-colors duration-300 py-6 lg:py-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-14 md:space-y-20">
         {/* 1. HEADER SECTION */}
-        <div className="text-center space-y-4 max-w-3xl mx-auto">
+        <div className="text-center space-y-4 max-w-5xl mx-auto">
           <div className="inline-flex items-center space-x-2 bg-blue-50 dark:bg-blue-900/30 border border-blue-100 dark:border-blue-800/50 px-4 py-1.5 rounded-full shadow-sm">
             <CalendarRange className="w-4 h-4 text-[#5EBC23]" />
             <span className="text-xs font-bold text-[#0C4587] dark:text-blue-300 tracking-wide uppercase">
@@ -115,11 +115,11 @@ export default function WeeklyRentals(): React.ReactElement {
         </div>
 
         {/* 2. VALUE PROPOSITION BOXES */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 md:gap-8 items-stretch">
           {weeklyAdvantages.map((adv, idx) => (
             <div
               key={idx}
-              className="bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-900 rounded-2xl p-6 lg:p-8 shadow-sm flex flex-col space-y-4 hover:shadow-md transition-all"
+              className="bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-2xl p-2 md:p-6 shadow-sm flex flex-col space-y-4 hover:shadow-md transition-all"
             >
               <div className="w-12 h-12 rounded-xl bg-gray-50 dark:bg-gray-950 border border-gray-100 dark:border-gray-800 flex items-center justify-center flex-shrink-0">
                 {idx === 0 && (
@@ -134,7 +134,7 @@ export default function WeeklyRentals(): React.ReactElement {
                 <h3 className="text-lg font-bold text-gray-900 dark:text-white tracking-tight">
                   {adv.title}
                 </h3>
-                <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed font-medium">
+                <p className="text-sm leading-relaxed font-medium">
                   {adv.description}
                 </p>
               </div>

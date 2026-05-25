@@ -38,7 +38,7 @@ export default function OurCars(): React.ReactElement {
     {
       id: "car-01",
       name: "BMW 5 Series",
-      brand: "Mercedes / BMW",
+      brand: "BMW",
       type: "Luxury",
       transmission: "Automatic",
       fuel: "Petrol/Diesel",
@@ -52,7 +52,7 @@ export default function OurCars(): React.ReactElement {
     {
       id: "car-02",
       name: "Toyota Fortuner 4x4",
-      brand: "Toyota / Jeep",
+      brand: "Toyota",
       type: "SUV",
       transmission: "Automatic",
       fuel: "Diesel",
@@ -66,7 +66,7 @@ export default function OurCars(): React.ReactElement {
     {
       id: "car-03",
       name: "Tesla Model Y",
-      brand: "Tesla / Audi",
+      brand: "Tesla",
       type: "Electric",
       transmission: "Automatic",
       fuel: "Electric (450km)",
@@ -80,14 +80,14 @@ export default function OurCars(): React.ReactElement {
     {
       id: "car-04",
       name: "Maruti Suzuki Ciaz",
-      brand: "Suzuki / Hyundai",
+      brand: "Suzuki",
       type: "Sedan",
       transmission: "Manual",
       fuel: "Petrol",
       seats: 5,
       bags: 2,
       pricePerDay: 3500,
-      imageText: "⚡ Long Range Eco-Performance",
+      imageText: "💼 Smooth Corporate Cruiser",
       isAvailable: true,
     },
     {
@@ -100,8 +100,8 @@ export default function OurCars(): React.ReactElement {
       seats: 5,
       bags: 2,
       pricePerDay: 2200,
+      imageText: "🚀 Hot Hatch City Agility",
       isAvailable: true,
-      imageText: "⚡ Long Range Eco-Performance",
       tag: "Best Fuel Economy",
     },
     {
@@ -114,8 +114,279 @@ export default function OurCars(): React.ReactElement {
       seats: 5,
       bags: 4,
       pricePerDay: 18000,
-      imageText: "⚡ Long Range Eco-Performance",
+      imageText: "🔋 Futuristic Premium EV",
       isAvailable: false,
+    },
+    // ----------------- ADDED 20 MORE CARS -----------------
+    {
+      id: "car-07",
+      name: "Mercedes-Benz E-Class",
+      brand: "Mercedes",
+      type: "Luxury",
+      transmission: "Automatic",
+      fuel: "Diesel",
+      seats: 5,
+      bags: 4,
+      pricePerDay: 14500,
+      imageText: "👑 Ultimate Rear-Seat Comfort",
+      isAvailable: true,
+      tag: "Chauffeur Preferred",
+    },
+    {
+      id: "car-08",
+      name: "Mahindra XUV700 AX7",
+      brand: "Mahindra",
+      type: "SUV",
+      transmission: "Automatic",
+      fuel: "Diesel",
+      seats: 7,
+      bags: 4,
+      pricePerDay: 4800,
+      imageText: "🤖 Smart Adrenox Cockpit",
+      isAvailable: true,
+      tag: "Family Favorite",
+    },
+    {
+      id: "car-09",
+      name: "Tata Nexon EV Max",
+      brand: "Tata",
+      type: "Electric",
+      transmission: "Automatic",
+      fuel: "Electric (350km)",
+      seats: 5,
+      bags: 2,
+      pricePerDay: 3800,
+      imageText: "⚡ Green Highway Cruiser",
+      isAvailable: true,
+      tag: "Top Rated EV",
+    },
+    {
+      id: "car-10",
+      name: "Honda City ZX",
+      brand: "Honda",
+      type: "Sedan",
+      transmission: "Automatic",
+      fuel: "Petrol",
+      seats: 5,
+      bags: 3,
+      pricePerDay: 3200,
+      imageText: "📈 Timeless Comfort & VTEC Power",
+      isAvailable: true,
+    },
+    {
+      id: "car-11",
+      name: "Maruti Suzuki Swift",
+      brand: "Suzuki",
+      type: "Economy",
+      transmission: "Manual",
+      fuel: "Petrol",
+      seats: 5,
+      bags: 1,
+      pricePerDay: 1500,
+      imageText: "🏙️ Ultra Compact City Zip",
+      isAvailable: true,
+      tag: "Pocket Friendly",
+    },
+    {
+      id: "car-12",
+      name: "Range Rover Sport",
+      brand: "Land Rover",
+      type: "Luxury",
+      transmission: "Automatic",
+      fuel: "Petrol",
+      seats: 5,
+      bags: 5,
+      pricePerDay: 25000,
+      imageText: "🏰 Royal Elegance on Wheels",
+      isAvailable: true,
+      tag: "Ultra Premium",
+    },
+    {
+      id: "car-13",
+      name: "Hyundai Creta SX(O)",
+      brand: "Hyundai",
+      type: "SUV",
+      transmission: "Automatic",
+      fuel: "Petrol",
+      seats: 5,
+      bags: 3,
+      pricePerDay: 3500,
+      imageText: "🌅 Panoromic Skyway Explorer",
+      isAvailable: true,
+    },
+    {
+      id: "car-14",
+      name: "BYD Atto 3",
+      brand: "BYD",
+      type: "Electric",
+      transmission: "Automatic",
+      fuel: "Electric (420km)",
+      seats: 5,
+      bags: 3,
+      pricePerDay: 6500,
+      imageText: "🌌 High-Tech Avant-Garde Cabin",
+      isAvailable: true,
+    },
+    {
+      id: "car-15",
+      name: "Hyundai Verna Turbo",
+      brand: "Hyundai",
+      type: "Sedan",
+      transmission: "Automatic",
+      fuel: "Petrol",
+      seats: 5,
+      bags: 3,
+      pricePerDay: 3800,
+      imageText: "🌪️ Aggressive Futuristic Performance",
+      isAvailable: true,
+      tag: "Trending Sedan",
+    },
+    {
+      id: "car-16",
+      name: "Tata Altroz iCNG",
+      brand: "Tata",
+      type: "Economy",
+      transmission: "Manual",
+      fuel: "CNG/Petrol",
+      seats: 5,
+      bags: 2,
+      pricePerDay: 1800,
+      imageText: "🛡️ 5-Star Safety Twin Cylinder",
+      isAvailable: true,
+    },
+    {
+      id: "car-17",
+      name: "Porsche 911 Carrera",
+      brand: "Porsche",
+      type: "Luxury",
+      transmission: "Automatic",
+      fuel: "Petrol",
+      seats: 2,
+      bags: 1,
+      pricePerDay: 45000,
+      imageText: "🏁 Track-Ready Heritage Sports",
+      isAvailable: false,
+      tag: "Exotic Asset",
+    },
+    {
+      id: "car-18",
+      name: "Kia Seltos Facelift",
+      brand: "Kia",
+      type: "SUV",
+      transmission: "Automatic",
+      fuel: "Diesel",
+      seats: 5,
+      bags: 3,
+      pricePerDay: 3900,
+      imageText: "✨ Sharp Sophisticated Urban SUV",
+      isAvailable: true,
+    },
+    {
+      id: "car-19",
+      name: "MG ZS EV",
+      brand: "MG",
+      type: "Electric",
+      transmission: "Automatic",
+      fuel: "Electric (380km)",
+      seats: 5,
+      bags: 3,
+      pricePerDay: 4500,
+      imageText: "🇬🇧 Connected British Tech EV",
+      isAvailable: true,
+    },
+    {
+      id: "car-20",
+      name: "Skoda Slavia 1.5 TSI",
+      brand: "Skoda",
+      type: "Sedan",
+      transmission: "Automatic",
+      fuel: "Petrol",
+      seats: 5,
+      bags: 4,
+      pricePerDay: 4200,
+      imageText: "🇩🇪 Solid European Performance",
+      isAvailable: true,
+      tag: "Enthusiast Choice",
+    },
+    {
+      id: "car-21",
+      name: "Renault Triber",
+      brand: "Renault",
+      type: "Economy",
+      transmission: "Manual",
+      fuel: "Petrol",
+      seats: 7,
+      bags: 2,
+      pricePerDay: 2000,
+      imageText: "🎒 Modular Budget 7-Seater Space",
+      isAvailable: true,
+    },
+    {
+      id: "car-22",
+      name: "Jaguar F-Pace",
+      brand: "Jaguar",
+      type: "Luxury",
+      transmission: "Automatic",
+      fuel: "Diesel",
+      seats: 5,
+      bags: 4,
+      pricePerDay: 19500,
+      imageText: "🐆 Aggressive Luxury Performance SUV",
+      isAvailable: true,
+    },
+    {
+      id: "car-23",
+      name: "Mahindra Scorpio-N",
+      brand: "Mahindra",
+      type: "SUV",
+      transmission: "Manual",
+      fuel: "Diesel",
+      seats: 7,
+      bags: 3,
+      pricePerDay: 4500,
+      imageText: "🦁 Big Daddy of SUVs",
+      isAvailable: true,
+    },
+    {
+      id: "car-24",
+      name: "BMW i4",
+      brand: "BMW",
+      type: "Electric",
+      transmission: "Automatic",
+      fuel: "Electric (480km)",
+      seats: 5,
+      bags: 3,
+      pricePerDay: 22000,
+      imageText: "⚡ Pure Luxury Grand Coupe EV",
+      isAvailable: true,
+      tag: "Elite EV",
+    },
+    {
+      id: "car-25",
+      name: "Volkswagen Virtus GT",
+      brand: "Volkswagen",
+      type: "Sedan",
+      transmission: "Automatic",
+      fuel: "Petrol",
+      seats: 5,
+      bags: 4,
+      pricePerDay: 4500,
+      imageText: "🔥 High-Octane German Driving Vibe",
+      isAvailable: true,
+      tag: "Top Speed Tier",
+    },
+    {
+      id: "car-26",
+      name: "Maruti Suzuki Baleno",
+      brand: "Suzuki",
+      type: "Economy",
+      transmission: "Automatic",
+      fuel: "Petrol",
+      seats: 5,
+      bags: 2,
+      pricePerDay: 1800,
+      imageText: "💎 Premium Comfort Budget Hatchback",
+      isAvailable: true,
     },
   ];
 
@@ -144,10 +415,10 @@ export default function OurCars(): React.ReactElement {
   }, [searchQuery, selectedTab]);
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-gray-100 transition-colors duration-300 py-16 lg:py-24">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-gray-100 transition-colors duration-300 py-6 lg:py-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         {/* HEADER HERO INFRASTRUCTURE */}
-        <div className="text-center space-y-4 max-w-2xl mx-auto">
+        <div className="text-center space-y-4 max-w-5xl mx-auto">
           <div className="inline-flex items-center space-x-2 bg-blue-50 dark:bg-blue-900/30 border border-blue-100 dark:border-blue-800/50 px-4 py-1.5 rounded-full shadow-sm">
             <CarIcon className="w-4 h-4 text-[#5EBC23]" />
             <span className="text-xs font-bold text-[#0C4587] dark:text-blue-300 tracking-wide uppercase">
@@ -160,7 +431,7 @@ export default function OurCars(): React.ReactElement {
               Fleet
             </span>
           </h1>
-          <p className="text-sm sm:text-base text-gray-500 dark:text-gray-400 font-medium">
+          <p className="text-sm sm:text-base font-medium">
             Select from pristine economy hatchbacks, spacious family SUVs, to
             ultra-premium luxury vehicles. Transparent pricing with verified
             mechanical protection.
@@ -170,7 +441,7 @@ export default function OurCars(): React.ReactElement {
 
         {/* INTERACTIVE CONTROLS: SEARCH BAR & CATEGORIES */}
         <div className="space-y-6">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4 bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-900 p-4 rounded-2xl shadow-sm">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 p-2 md:p-3 rounded-2xl shadow-sm">
             {/* Search Input Box */}
             <div className="relative w-full md:w-96 flex items-center">
               <Search className="absolute left-4 w-4 h-4 text-gray-400" />
@@ -189,7 +460,7 @@ export default function OurCars(): React.ReactElement {
                 <button
                   key={tab}
                   onClick={() => setSelectedTab(tab)}
-                  className={`px-4 py-2.5 rounded-xl text-xs font-bold tracking-wide uppercase whitespace-nowrap transition-all ${
+                  className={`px-4 py-2.5 rounded-xl text-xs font-bold tracking-wide uppercase whitespace-nowrap transition-all cursor-pointer ${
                     selectedTab === tab
                       ? "bg-[#0C4587] text-white shadow-md shadow-blue-900/10"
                       : "bg-gray-50 dark:bg-gray-950 text-gray-500 hover:text-gray-800 dark:hover:text-gray-200 border border-gray-100 dark:border-gray-800/80"
@@ -204,11 +475,11 @@ export default function OurCars(): React.ReactElement {
 
         {/* VEHICLES DYNAMIC CARDS GRID DISPLAY */}
         {filteredCars.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8 items-stretch">
             {filteredCars.map((car) => (
               <div
                 key={car.id}
-                className="bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-900 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1 relative"
+                className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1 relative"
               >
                 {/* Custom Brand Floating Tags */}
                 {car.tag && (
@@ -228,7 +499,7 @@ export default function OurCars(): React.ReactElement {
                   </div>
 
                   {/* Body Specs Structure */}
-                  <div className="p-6 space-y-4">
+                  <div className="p-4 space-y-1.5">
                     <div className="flex items-start justify-between">
                       <div>
                         <span className="text-xs font-bold text-[#5EBC23] uppercase tracking-widest">
@@ -250,21 +521,21 @@ export default function OurCars(): React.ReactElement {
                     </div>
 
                     {/* Specification Badges Horizontal Grid */}
-                    <div className="grid grid-cols-2 gap-3 pt-2 text-xs font-bold text-gray-500 dark:text-gray-400">
-                      <div className="flex items-center space-x-2 bg-gray-50 dark:bg-gray-950 p-2 rounded-xl border border-gray-100/50 dark:border-gray-800/40">
-                        <Gauge className="w-3.5 h-3.5 text-gray-400" />
+                    <div className="grid grid-cols-2 gap-3 pt-2 text-xs font-bold">
+                      <div className="flex items-center space-x-2 bg-gray-100 dark:bg-gray-950 p-2 rounded-xl border border-gray-100/50 dark:border-gray-800/40">
+                        <Gauge className="w-3.5 h-3.5" />
                         <span>{car.transmission}</span>
                       </div>
-                      <div className="flex items-center space-x-2 bg-gray-50 dark:bg-gray-950 p-2 rounded-xl border border-gray-100/50 dark:border-gray-800/40">
-                        <Fuel className="w-3.5 h-3.5 text-gray-400" />
+                      <div className="flex items-center space-x-2 bg-gray-100 dark:bg-gray-950 p-2 rounded-xl border border-gray-100/50 dark:border-gray-800/40">
+                        <Fuel className="w-3.5 h-3.5" />
                         <span className="truncate">{car.fuel}</span>
                       </div>
-                      <div className="flex items-center space-x-2 bg-gray-50 dark:bg-gray-950 p-2 rounded-xl border border-gray-100/50 dark:border-gray-800/40">
-                        <Users className="w-3.5 h-3.5 text-gray-400" />
+                      <div className="flex items-center space-x-2 bg-gray-100 dark:bg-gray-950 p-2 rounded-xl border border-gray-100/50 dark:border-gray-800/40">
+                        <Users className="w-3.5 h-3.5" />
                         <span>{car.seats} Seats Cap</span>
                       </div>
-                      <div className="flex items-center space-x-2 bg-gray-50 dark:bg-gray-950 p-2 rounded-xl border border-gray-100/50 dark:border-gray-800/40">
-                        <Briefcase className="w-3.5 h-3.5 text-gray-400" />
+                      <div className="flex items-center space-x-2 bg-gray-100 dark:bg-gray-950 p-2 rounded-xl border border-gray-100/50 dark:border-gray-800/40">
+                        <Briefcase className="w-3.5 h-3.5" />
                         <span>{car.bags} Luggage Bags</span>
                       </div>
                     </div>
@@ -274,14 +545,14 @@ export default function OurCars(): React.ReactElement {
                 {/* Pricing Block & Interactive Book Anchor Footer */}
                 <div className="p-6 pt-0 border-t border-gray-50 dark:border-gray-800/50 mt-4 flex items-center justify-between">
                   <div>
-                    <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest block">
+                    <span className="text-[10px] font-bold uppercase tracking-widest block">
                       Base Rental Rate
                     </span>
                     <div className="flex items-baseline space-x-0.5">
                       <span className="text-2xl font-black text-gray-900 dark:text-white tracking-tight">
                         ₹{car.pricePerDay.toLocaleString("en-IN")}
                       </span>
-                      <span className="text-xs font-bold text-gray-400">
+                      <span className="text-xs font-bold text-gray-600">
                         /Day
                       </span>
                     </div>
@@ -328,7 +599,7 @@ export default function OurCars(): React.ReactElement {
               <h4 className="font-bold text-gray-900 dark:text-white text-base">
                 Carry-On Assured Fleet Protection
               </h4>
-              <p className="text-xs sm:text-sm text-gray-400 dark:text-gray-500 font-medium">
+              <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 font-medium">
                 Every inventory listing incorporates deep sterilization routines
                 and computerized diagnostic validation before checkout flags.
               </p>

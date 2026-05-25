@@ -46,8 +46,8 @@ export default function TermsAndConditions() {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-gray-100 transition-colors duration-300 py-16 lg:py-24">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-gray-100 transition-colors duration-300 py-6 lg:py-10">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header Block matched with Brand Vibe */}
         <div className="text-center space-y-4 mb-16">
           <div className="inline-flex items-center space-x-2 bg-blue-50 dark:bg-blue-900/30 border border-blue-100 dark:border-blue-800/50 px-4 py-1.5 rounded-full shadow-sm">
@@ -66,7 +66,7 @@ export default function TermsAndConditions() {
         </div>
 
         {/* Intro Text Card */}
-        <div className="bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-900 rounded-2xl p-6 lg:p-8 shadow-sm mb-10 leading-relaxed text-gray-600 dark:text-gray-400 text-sm sm:text-base font-medium">
+        <div className="bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-2xl p-2 md:p-6 shadow-sm mb-10 leading-relaxed text-sm sm:text-base font-medium">
           Please read these **Terms and Conditions** carefully before
           initializing any booking services through our Next.js application
           layer or upcoming mobile interfaces. By browsing or reserving any
@@ -75,11 +75,11 @@ export default function TermsAndConditions() {
         </div>
 
         {/* Dynamic Section Accordion/List Layout */}
-        <div className="space-y-6">
+        <div className="space-y-4">
           {termsSections.map((section, index) => (
             <div
               key={index}
-              className="bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-900 rounded-2xl p-6 lg:p-8 shadow-sm hover:shadow-md transition-shadow duration-300"
+              className="bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-2xl p-2 md:p-6 shadow-sm hover:shadow-md transition-shadow duration-300"
             >
               <div className="flex items-center space-x-3 mb-4">
                 <div className="p-2 bg-gray-50 dark:bg-gray-950 border border-gray-100 dark:border-gray-800 rounded-xl">
@@ -89,7 +89,7 @@ export default function TermsAndConditions() {
                   {section.title}
                 </h2>
               </div>
-              <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400 leading-relaxed pl-2 font-medium">
+              <p className="text-sm sm:text-base leading-relaxed pl-2 font-medium">
                 {section.content}
               </p>
             </div>
@@ -107,7 +107,7 @@ export default function TermsAndConditions() {
             per enterprise operational rules.
           </p>
           <div className="pt-2 text-sm font-bold text-[#0C4587] dark:text-blue-400">
-            ✉️ legal@carryon.in
+            <a href="mailto:connect@carry-on.in">✉️ connect@carry-on.in</a>
           </div>
         </div>
       </div>

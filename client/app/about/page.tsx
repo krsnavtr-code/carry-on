@@ -55,10 +55,10 @@ export default function AboutUs(): React.ReactElement {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-gray-100 transition-colors duration-300 py-16 lg:py-24">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-24">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-gray-100 transition-colors duration-300 py-6 lg:py-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
         {/* 1. HEADER HERO BLOCK */}
-        <div className="text-center space-y-4 max-w-3xl mx-auto">
+        <div className="text-center space-y-4 max-w-5xl mx-auto">
           <div className="inline-flex items-center space-x-2 bg-blue-50 dark:bg-blue-900/30 border border-blue-100 dark:border-blue-800/50 px-4 py-1.5 rounded-full shadow-sm">
             <Sparkles className="w-4 h-4 text-[#5EBC23]" />
             <span className="text-xs font-bold text-[#0C4587] dark:text-blue-300 tracking-wide uppercase">
@@ -71,7 +71,7 @@ export default function AboutUs(): React.ReactElement {
               Carry-On
             </span>
           </h1>
-          <p className="text-base sm:text-lg text-gray-600 dark:text-gray-400 leading-relaxed font-medium">
+          <p className="text-base sm:text-lg leading-relaxed font-medium">
             Redefining modular mobility across the digital ecosystem. We deliver
             scalable, premium, and hyper-reliable car rental pipelines for
             corporate tours and personal vacations.
@@ -82,12 +82,12 @@ export default function AboutUs(): React.ReactElement {
         {/* 2. VALUE PROPOSITION GRID (Text + Clean UI Blocks) */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left Block: Visual Brand Blueprint */}
-          <div className="space-y-6 bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-900 p-8 lg:p-10 rounded-3xl shadow-sm relative overflow-hidden">
+          <div className="space-y-6 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 p-3 md:p-6 rounded-3xl shadow-sm relative overflow-hidden">
             <div className="absolute -right-10 -bottom-10 w-40 h-40 bg-green-500/5 rounded-full blur-2xl" />
             <h2 className="text-2xl sm:text-3xl font-black text-gray-900 dark:text-white tracking-tight">
               Driving Trust, Fueling Freedom.
             </h2>
-            <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400 leading-relaxed font-medium">
+            <p className="text-sm sm:text-base leading-relaxed font-medium">
               Founded under the banner of scalable innovation, **Carry-On Car
               Rental Pvt Ltd** bridges the gap between premium consumer comfort
               and smart transportation systems. Whether you need a swift vehicle
@@ -102,7 +102,7 @@ export default function AboutUs(): React.ReactElement {
               ].map((point, index) => (
                 <li
                   key={index}
-                  className="flex items-center text-sm font-semibold text-gray-500 dark:text-gray-400"
+                  className="flex items-center text-sm font-semibold text-gray-600 dark:text-gray-400"
                 >
                   <CheckCircle2 className="w-4 h-4 mr-2.5 text-[#5EBC23] flex-shrink-0" />
                   {point}
@@ -116,7 +116,7 @@ export default function AboutUs(): React.ReactElement {
             {stats.map((stat, idx) => (
               <div
                 key={idx}
-                className="bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-900 rounded-2xl p-6 shadow-sm text-center space-y-1 hover:shadow-md transition-shadow duration-200"
+                className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-2xl p-3 md:p-6 shadow-sm text-center space-y-1 hover:shadow-md transition-shadow duration-200"
               >
                 <div
                   className={`text-3xl sm:text-4xl font-black ${stat.color} tracking-tight`}
@@ -146,7 +146,7 @@ export default function AboutUs(): React.ReactElement {
             {coreValues.map((value, idx) => (
               <div
                 key={idx}
-                className="bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-900 rounded-2xl p-6 lg:p-8 shadow-sm flex flex-col space-y-4 hover:-translate-y-1 transition-transform duration-200"
+                className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-2xl p-3 md:p-6 shadow-sm flex flex-col space-y-4 hover:-translate-y-1 transition-transform duration-200"
               >
                 <div className="w-12 h-12 rounded-xl bg-gray-50 dark:bg-gray-950 border border-gray-100 dark:border-gray-800 flex items-center justify-center">
                   {value.icon}

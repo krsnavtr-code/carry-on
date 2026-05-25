@@ -81,10 +81,10 @@ export default function ContactUs(): React.ReactElement {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-gray-100 transition-colors duration-300 py-16 lg:py-24">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-gray-100 transition-colors duration-300 py-6 lg:py-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
         {/* HEADER AREA */}
-        <div className="text-center space-y-4 max-w-2xl mx-auto">
+        <div className="text-center space-y-4 max-w-5xl mx-auto">
           <div className="inline-flex items-center space-x-2 bg-blue-50 dark:bg-blue-900/30 border border-blue-100 dark:border-blue-800/50 px-4 py-1.5 rounded-full shadow-sm">
             <MessageSquare className="w-4 h-4 text-[#5EBC23]" />
             <span className="text-xs font-bold text-[#0C4587] dark:text-blue-300 tracking-wide uppercase">
@@ -94,7 +94,7 @@ export default function ContactUs(): React.ReactElement {
           <h1 className="text-4xl sm:text-5xl font-black tracking-tight text-gray-900 dark:text-white">
             Get In Touch
           </h1>
-          <p className="text-sm sm:text-base text-gray-500 dark:text-gray-400 font-medium">
+          <p className="text-sm sm:text-base font-medium">
             Have queries regarding automated rental pricing, corporate
             structures, or fleet configurations? Drop us a prompt message.
           </p>
@@ -109,7 +109,7 @@ export default function ContactUs(): React.ReactElement {
               <a
                 key={index}
                 href={channel.href}
-                className={`bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-900 rounded-2xl p-5 flex items-start space-x-4 shadow-sm ${
+                className={`bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-2xl p-2 md:p-5 flex items-start space-x-4 shadow-sm ${
                   channel.href !== "#"
                     ? "hover:border-blue-500/30 transition-all duration-200"
                     : ""
@@ -131,7 +131,7 @@ export default function ContactUs(): React.ReactElement {
           </div>
 
           {/* RIGHT 7 COLS: High Conversion Message Box */}
-          <div className="lg:col-span-7 bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-900 rounded-3xl p-6 lg:p-10 shadow-sm relative">
+          <div className="lg:col-span-7 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl p-2 md:p-6 shadow-sm relative">
             {isSubmitted && (
               <div className="absolute inset-0 bg-white/95 dark:bg-gray-900/95 rounded-3xl flex flex-col items-center justify-center space-y-3 z-10 animate-fade-in">
                 <CheckCircle className="w-16 h-16 text-[#5EBC23] animate-bounce" />
@@ -145,11 +145,11 @@ export default function ContactUs(): React.ReactElement {
               </div>
             )}
 
-            <form onSubmit={handleSubmit} className="space-y-5">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <form onSubmit={handleSubmit} className="space-y-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {/* Full Name */}
-                <div className="space-y-2">
-                  <label className="text-xs font-bold uppercase tracking-wider text-gray-400">
+                <div className="">
+                  <label className="text-xs font-bold uppercase tracking-wider">
                     Your Name
                   </label>
                   <input
@@ -157,14 +157,14 @@ export default function ContactUs(): React.ReactElement {
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
-                    placeholder="John Doe"
+                    placeholder="Full Name"
                     required
                     className="w-full bg-gray-50 dark:bg-gray-950 border border-gray-200 dark:border-gray-800 rounded-xl px-4 py-3.5 text-sm focus:outline-none focus:border-blue-500 transition-all text-gray-800 dark:text-gray-200"
                   />
                 </div>
                 {/* Phone Number */}
-                <div className="space-y-2">
-                  <label className="text-xs font-bold uppercase tracking-wider text-gray-400">
+                <div className="">
+                  <label className="text-xs font-bold uppercase tracking-wider">
                     Phone Number
                   </label>
                   <input
@@ -180,8 +180,8 @@ export default function ContactUs(): React.ReactElement {
               </div>
 
               {/* Email Address */}
-              <div className="space-y-2">
-                <label className="text-xs font-bold uppercase tracking-wider text-gray-400">
+              <div className="">
+                <label className="text-xs font-bold uppercase tracking-wider">
                   Email Address
                 </label>
                 <input
@@ -189,15 +189,15 @@ export default function ContactUs(): React.ReactElement {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  placeholder="john@example.com"
+                  placeholder="name@example.com"
                   required
                   className="w-full bg-gray-50 dark:bg-gray-950 border border-gray-200 dark:border-gray-800 rounded-xl px-4 py-3.5 text-sm focus:outline-none focus:border-blue-500 transition-all text-gray-800 dark:text-gray-200"
                 />
               </div>
 
               {/* Custom Message Body */}
-              <div className="space-y-2">
-                <label className="text-xs font-bold uppercase tracking-wider text-gray-400">
+              <div className="">
+                <label className="text-xs font-bold uppercase tracking-wider">
                   Your Message
                 </label>
                 <textarea

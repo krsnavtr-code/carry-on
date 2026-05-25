@@ -46,8 +46,8 @@ export default function PrivacyPolicy() {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-gray-100 transition-colors duration-300 py-16 lg:py-24">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-gray-100 transition-colors duration-300 py-6 lg:py-10">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header Block matched with Brand Vibe */}
         <div className="text-center space-y-4 mb-16">
           <div className="inline-flex items-center space-x-2 bg-blue-50 dark:bg-blue-900/30 border border-blue-100 dark:border-blue-800/50 px-4 py-1.5 rounded-full shadow-sm">
@@ -79,7 +79,7 @@ export default function PrivacyPolicy() {
           {policySections.map((section, index) => (
             <div
               key={index}
-              className="bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-900 rounded-2xl p-6 lg:p-8 shadow-sm hover:shadow-md transition-shadow duration-300"
+              className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-2xl p-2 md:p-6 lg:p-8 shadow-sm hover:shadow-md transition-shadow duration-300"
             >
               <div className="flex items-center space-x-3 mb-4">
                 <div className="p-2 bg-gray-50 dark:bg-gray-950 border border-gray-100 dark:border-gray-800 rounded-xl">
@@ -107,7 +107,7 @@ export default function PrivacyPolicy() {
             directly to our verification desk.
           </p>
           <div className="pt-2 text-sm font-bold text-[#0C4587] dark:text-blue-400">
-            ✉️ privacy@carryon.in
+            <a href="mailto:connect@carry-on.in">✉️ connect@carry-on.in</a>
           </div>
         </div>
       </div>

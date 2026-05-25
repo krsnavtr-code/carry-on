@@ -165,9 +165,9 @@ export default function Footer() {
               <MapPin className="w-4 h-4" />
             </div>
             <div>
-              <h5 className="font-semibold text-white">Our Location</h5>
+              <h5 className="font-semibold text-white">Location</h5>
               <p className="text-gray-400 text-xs mt-0.5">
-                123 Car Rental Street, India
+                H-213, 3rd Floor Sector-63 Noida 201301
               </p>
             </div>
           </div>
@@ -177,7 +177,7 @@ export default function Footer() {
             </div>
             <div>
               <h5 className="font-semibold text-white">Call Us 24/7</h5>
-              <p className="text-gray-400 text-xs mt-0.5">+91 9084407615</p>
+              <p className="text-gray-400 text-xs mt-0.5">+91 83830 17006</p>
             </div>
           </div>
           <div className="flex items-start space-x-3">
@@ -186,7 +186,7 @@ export default function Footer() {
             </div>
             <div>
               <h5 className="font-semibold text-white">Email Support</h5>
-              <p className="text-gray-400 text-xs mt-0.5">support@carryon.in</p>
+              <p className="text-gray-400 text-xs mt-0.5"><a href="mailto:connect@carry-on.in">connect@carry-on.in</a></p>
             </div>
           </div>
           <div className="flex items-start space-x-3">

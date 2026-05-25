@@ -54,8 +54,8 @@ export default function SitemapPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-gray-100 transition-colors duration-300 py-16 lg:py-24">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-gray-100 transition-colors duration-300 py-6 lg:py-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header Section with Brand Gradient */}
         <div className="text-center space-y-4 mb-16">
           <div className="inline-flex items-center space-x-2 bg-blue-50 dark:bg-blue-900/30 border border-blue-100 dark:border-blue-800/50 px-4 py-1.5 rounded-full shadow-sm">
@@ -67,7 +67,7 @@ export default function SitemapPage() {
           <h1 className="text-4xl sm:text-5xl font-black tracking-tight text-gray-900 dark:text-white">
             Website Sitemap
           </h1>
-          <p className="text-sm sm:text-base text-gray-500 dark:text-gray-400 max-w-xl mx-auto font-medium">
+          <p className="text-sm sm:text-base max-w-3xl mx-auto font-medium">
             A comprehensive, clean index matrix designed for quick crawling
             accessibility across Carry-On Car Rental systems.
           </p>
@@ -75,15 +75,15 @@ export default function SitemapPage() {
         </div>
 
         {/* 2x2 Responsive Link Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
           {sitemapData.map((category, idx) => (
             <div
               key={idx}
-              className="bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-900 rounded-3xl p-6 lg:p-8 shadow-sm hover:shadow-md transition-all duration-200"
+              className="bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl p-2 md:p-6 shadow-sm hover:shadow-md transition-all duration-200"
             >
               {/* Category Header */}
               <div className="flex items-center space-x-3 pb-4 mb-6 border-b border-gray-50 dark:border-gray-800/50">
-                <div className="p-2.5 bg-gray-50 dark:bg-gray-950 border border-gray-100 dark:border-gray-800 rounded-2xl">
+                <div className="p-2 bg-gray-50 dark:bg-gray-950 border border-gray-100 dark:border-gray-800 rounded-2xl">
                   {category.icon}
                 </div>
                 <h2 className="text-lg font-extrabold text-gray-900 dark:text-white tracking-tight">
@@ -92,18 +92,18 @@ export default function SitemapPage() {
               </div>
 
               {/* Sub-links Stack */}
-              <ul className="space-y-3.5">
+              <ul className="space-y-2">
                 {category.links.map((link, linkIdx) => (
                   <li key={linkIdx}>
                     <Link
                       href={link.href}
-                      className="group flex items-center justify-between text-sm sm:text-base text-gray-600 dark:text-gray-400 hover:text-[#0C4587] dark:hover:text-blue-400 font-semibold p-2.5 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-950 transition-all duration-150"
+                      className="group flex items-center justify-between text-sm sm:text-base hover:text-[#0C4587] dark:hover:text-blue-400 font-semibold p-2 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-950 transition-all duration-150"
                     >
                       <span className="flex items-center">
-                        <ChevronRight className="w-4 h-4 mr-2 text-gray-300 group-hover:text-[#5EBC23] transition-colors" />
+                        <ChevronRight className="w-4 h-4 mr-2 group-hover:text-[#5EBC23] transition-colors" />
                         {link.name}
                       </span>
-                      <span className="text-xs text-gray-400 font-mono tracking-tighter opacity-70 group-hover:opacity-100 transition-opacity">
+                      <span className="text-xs text-gray-600 dark:text-gray-400 font-mono tracking-tighter group-hover:opacity-100 transition-opacity">
                         {link.href}
                       </span>
                     </Link>
