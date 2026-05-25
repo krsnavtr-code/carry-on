@@ -46,7 +46,7 @@ export default function Navbar() {
   return (
     <nav className="bg-white dark:bg-gray-950 border-b border-gray-100 dark:border-gray-900 sticky top-0 z-50 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
+        <div className="flex justify-between items-center h-14">
           {/* Logo Section matched with your Brand identity */}
           <div className="flex items-center">
             <Link href="/" className="flex items-center space-x-2 group">
@@ -77,10 +77,10 @@ export default function Navbar() {
               <Link
                 key={link.name}
                 href={link.href}
-                className={`relative font-semibold px-4 py-2 rounded-xl text-sm transition-all duration-200 ${
+                className={`relative font-semibold px-2.5 py-1 rounded-lg text-sm transition-all duration-200 ${
                   isActive(link.href)
-                    ? "text-[#0C4587] dark:text-blue-400 bg-blue-50 dark:bg-blue-900/30"
-                    : "text-gray-600 dark:text-gray-300 hover:text-[#0C4587] dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-gray-900/50"
+                    ? "text-[#0C4587] dark:text-blue-400 bg-blue-100 dark:bg-blue-900/30"
+                    : "text-gray-600 dark:text-gray-300 hover:text-[#0C4587] dark:hover:text-blue-400"
                 } group`}
               >
                 {link.name}
@@ -100,7 +100,7 @@ export default function Navbar() {
             {/* Theme Toggle Button */}
             <button
               onClick={toggleTheme}
-              className="p-2.5 rounded-xl bg-gray-50 dark:bg-gray-900 text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 border border-gray-100 dark:border-gray-800 transition-all duration-200"
+              className="p-2 rounded-xl bg-gray-50 dark:bg-gray-900 text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 border border-gray-100 dark:border-gray-800 transition-all duration-200 cursor-pointer"
               aria-label="Toggle theme"
             >
               {theme === "light" ? (
@@ -113,7 +113,7 @@ export default function Navbar() {
             {/* Premium Dynamic 'Book Now' Button */}
             <Link
               href="/booking"
-              className="relative overflow-hidden inline-flex items-center justify-center bg-gradient-to-r from-[#0C4587] to-[#0A3C73] hover:from-[#5EBC23] hover:to-[#4CAF50] text-white font-bold text-sm px-6 py-3 rounded-xl shadow-md shadow-blue-900/20 hover:shadow-green-500/20 hover:-translate-y-[1px] active:translate-y-0 transition-all duration-300"
+              className="relative overflow-hidden inline-flex items-center justify-center bg-gradient-to-r from-[#0C4587] to-[#0A3C73] hover:from-[#5EBC23] hover:to-[#4CAF50] text-white font-bold text-sm px-4 py-1.5 rounded-xl shadow-md shadow-blue-900/20 hover:shadow-green-500/20 hover:-translate-y-[1px] active:translate-y-0 transition-all duration-300"
             >
               Book Now
             </Link>
@@ -123,7 +123,7 @@ export default function Navbar() {
           <div className="flex items-center space-x-3 md:hidden">
             <button
               onClick={toggleTheme}
-              className="p-2 rounded-lg bg-gray-50 dark:bg-gray-900 text-gray-600 dark:text-gray-400 border border-gray-100 dark:border-gray-800"
+              className="p-2 rounded-lg bg-gray-50 dark:bg-gray-900 text-gray-600 dark:text-gray-400 border border-gray-100 dark:border-gray-800 "
             >
               {theme === "light" ? (
                 <Moon className="w-5 h-5" />
@@ -134,7 +134,7 @@ export default function Navbar() {
 
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="p-2 rounded-lg bg-gray-50 dark:bg-gray-900 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 border border-gray-100 dark:border-gray-800 transition-colors"
+              className="p-1.5 rounded-lg bg-gray-50 dark:bg-gray-900 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 border border-gray-100 dark:border-gray-800 transition-colors"
               aria-label="Toggle Menu"
             >
               {isOpen ? (
@@ -155,16 +155,16 @@ export default function Navbar() {
             : "opacity-0 scale-y-0 invisible h-0"
         }`}
       >
-        <div className="px-4 pt-2 pb-6 space-y-2">
+        <div className="px-4 pt-2 pb-6 space-y-1">
           {navLinks.map((link) => (
             <Link
               key={link.name}
               href={link.href}
               onClick={() => setIsOpen(false)}
-              className={`flex items-center font-semibold px-4 py-3 rounded-xl text-base transition-colors ${
+              className={`flex items-center font-semibold px-4 py-1.5 rounded-xl text-base transition-colors ${
                 isActive(link.href)
                   ? "text-[#0C4587] dark:text-blue-400 bg-blue-50 dark:bg-blue-900/30"
-                  : "text-gray-700 dark:text-gray-300 hover:text-[#0C4587] dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-gray-900"
+                  : "text-gray-700 dark:text-gray-300 hover:text-[#0C4587] dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-900"
               }`}
             >
               {link.icon}
@@ -176,7 +176,7 @@ export default function Navbar() {
             <Link
               href="/booking"
               onClick={() => setIsOpen(false)}
-              className="flex w-full items-center justify-center bg-gradient-to-r from-[#0C4587] to-[#0A3C73] text-white font-bold py-3.5 rounded-xl shadow-lg"
+              className="flex w-full items-center justify-center bg-gradient-to-r from-[#0C4587] to-[#0A3C73] text-white font-bold py-2 rounded-xl shadow-lg"
             >
               Book Now
             </Link>
