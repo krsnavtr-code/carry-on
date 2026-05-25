@@ -1,0 +1,135 @@
+===============================================================================
+                       PROJECT: CARRY-ON - SETUP GUIDE
+===============================================================================
+MERN Stack (with Next.js Frontend) & Future React Native Scalability
+Language/Frameworks: Next.js (App Router), Node.js, Express, MongoDB
+Focus: Maximum SEO, Ultra-fast Load Time, Clean API Architecture
+===============================================================================
+
+Yeh guide aapko "carry-on" project ko bilkul professional aur production-ready
+tarike se structure aur initialize karne me help karegi. Isme frontend aur backend
+ko alag rakha gaya hai taki future me React Native App ko isi Express API se
+connect kiya ja sake.
+
+-------------------------------------------------------------------------------
+1. PROJECT ARCHITECTURE (FOLDER STRUCTURE)
+-------------------------------------------------------------------------------
+Apne main project directory ("carry-on") ke andar do separate folders banayein:
+
+carry-on/
+├── carryon-backend/      # Pure Node.js/Express API (MERN Core)
+└── carryon-frontend/     # Next.js Application (SEO & Web UI)
+
+-------------------------------------------------------------------------------
+2. BACKEND SETUP (carryon-backend) - Node.js + Express + MongoDB
+-------------------------------------------------------------------------------
+Kyunki aapko future me React Native app banana hai, isliye backend pure separate
+Express API server rahega.
+
+Step 1: Folder banayein aur initialize karein:
+mkdir carryon-backend
+cd carryon-backend
+npm init -y
+
+Step 2: Necessary packages install karein:
+npm install express mongoose dotenv cors helmet morgan bcryptjs jsonwebtoken
+
+Step 3: Development packages install karein (Auto-restart ke liye):
+npm install --save-dev nodemon
+
+Step 4: package.json me start scripts update karein:
+"scripts": {
+  "start": "node server.js",
+  "dev": "nodemon server.js"
+}
+
+Step 5: .env file create karein:
+PORT=5000
+MONGO_URI=mongodb+srv://<username>:<password>@cluster.mongodb.net/carryon
+JWT_SECRET=your_super_secret_key_here
+NODE_ENV=development
+
+Step 6: Basic server.js template:
+--------------------------------------------------------
+const express = require('express');
+const cors = require('cors');
+const helmet = require('helmet');
+const morgan = require('morgan');
+require('dotenv').config();
+
+const app = express();
+
+// Middleware
+app.use(express.json());
+app.use(cors({ origin: process.env.CLIENT_URL || '*' }));
+app.use(helmet());
+app.use(morgan('dev'));
+
+// Test Route
+app.get('/', (req, res) => {
+  res.json({ message: "Welcome to Carry-On API Server" });
+});
+
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+--------------------------------------------------------
+
+-------------------------------------------------------------------------------
+3. FRONTEND SETUP (carryon-frontend) - Next.js (Latest App Router)
+-------------------------------------------------------------------------------
+Website ki high performance, SEO aur speed ke liye Next.js initialize karein.
+
+Step 1: Root folder ("carry-on") me wapas aayein aur Next.js app create karein:
+cd ..
+npx create-next-app@latest carryon-frontend
+
+Step 2: Installation Wizard me ye options select karein (Recommended):
+✔ Would you like to use TypeScript? ... No / Yes (As per your preference)
+✔ Would you like to use ESLint? ... Yes
+✔ Would you like to use Tailwind CSS? ... Yes  (Speed aur styling ke liye best)
+✔ Would you like to use `src/` directory? ... Yes (Clean code management)
+✔ Would you like to use App Router? (recommended) ... Yes (SEO aur Performance ke liye must)
+✔ Would you like to customize the default import alias (@/*)? ... Yes
+
+Step 3: Frontend ke liye helpful packages install karein:
+cd carryon-frontend
+npm install axios lucide-react react-hook-form
+
+Step 4: .env.local file create karein:
+NEXT_PUBLIC_API_URL=http://localhost:5000
+
+-------------------------------------------------------------------------------
+4. SEO & PERFORMANCE BEST PRACTICES (NEXT.JS)
+-------------------------------------------------------------------------------
+Aapki request ke mutabik high ranking aur fast load time ke liye ye rules follow karein:
+
+1. Server Components vs Client Components:
+   - Default roop se Next.js me saare components "Server Components" hote hain. Isme zero client-side JavaScript hoti hai, jo speed ke liye best hai.
+   - Data fetching (Express API se) hamesha Server Components me karein (`async/await` direct component me use karke).
+   - "use client" sirf wahan likhein jahan forms, onClick buttons, ya hooks (useState, useEffect) zaroori hon.
+
+2. Metadata API (For SEO):
+   - Har page (layout.js ya page.js) me static ya dynamic metadata generate karein:
+   export const metadata = {
+     title: 'Carry-On | Your Dynamic Title',
+     description: 'SEO optimized description for Carry-On project.',
+   }
+
+3. Image Optimization:
+   - Kabhi bhi normal <img> tag use na karein. Hamesha `import Image from 'next/image'` ka use karein. Yeh image size ko automatic optimize aur webp format me compress kar deta hai.
+
+4. Font Optimization:
+   - `next/font/google` ka use karein jo fonts ko locally host kar leta hai, jisse external Google requests nahi jati aur load time kam hota hai.
+
+-------------------------------------------------------------------------------
+5. FUTURE APP READY ARCHITECTURE (REACT NATIVE SCALE TIPS)
+-------------------------------------------------------------------------------
+- API Schema Sync: Jo bhi responses aapka backend send karega, use ekदम standard rakhein (e.g., status, message, data).
+- Axios Instances: Frontend me axios ka ek centralized instance bana kar baseUrl set karein. Jab React Native app banayenge, to wahan bhi bas base URL change karna hoga, baki saari API calling methods same rahengi.
+- Avoid Next-specific Code in Logic: Form validation rules, regex helpers, aur pure JavaScript logic functions ko alag folders me rakhein, taki unhe direct React Native workspace me copy kiya ja sake.
+
+===============================================================================
+                       ALL SET! HAPPY CODING FOR CARRY-ON 🚀
+===============================================================================
+Create.txt
+Displaying Create.txt.
