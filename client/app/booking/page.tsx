@@ -188,7 +188,7 @@ export default function BookingPage(): React.ReactElement {
   const steps = [
     {
       number: 1,
-      title: "Personal",
+      title: "Contact Info",
       icon: <User className="w-4 h-4" />,
     },
     { number: 2, title: "Locations Map", icon: <MapPin className="w-4 h-4" /> },
@@ -287,9 +287,9 @@ export default function BookingPage(): React.ReactElement {
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-gray-100 transition-colors duration-300 py-6 lg:py-10">
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
         {/* HEADER */}
-        <div className="text-center space-y-3">
+        <div className="text-center space-y-2">
           <div className="inline-flex items-center space-x-2 bg-blue-50 dark:bg-blue-900/30 border border-blue-100 dark:border-blue-800/50 px-4 py-1.5 rounded-full shadow-sm">
             <Car className="w-4 h-4 text-[#5EBC23]" />
             <span className="text-xs font-bold text-[#0C4587] dark:text-blue-300 tracking-wide uppercase">
@@ -309,7 +309,7 @@ export default function BookingPage(): React.ReactElement {
         </div>
 
         {/* PROGRESS SYSTEM TRACKER */}
-        <div className="bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-2xl p-2 md:p-5 shadow-sm">
+        <div className="bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-2xl p-2 md:p-3 shadow-sm">
           <div className="flex items-center justify-between">
             {steps.map((step, index) => (
               <React.Fragment key={step.number}>
@@ -352,7 +352,7 @@ export default function BookingPage(): React.ReactElement {
         </div>
 
         {/* CORE FORM RENDERER */}
-        <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl p-2 md:p-6 shadow-sm">
+        <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl p-2 md:p-6 shadow-sm max-w-xl mx-auto">
           {selectedCarId && (
             <div className="mb-6 flex items-center justify-between bg-gradient-to-r from-blue-50/50 to-transparent dark:from-blue-950/20 border border-blue-100/50 dark:border-blue-900/30 p-3.5 rounded-xl text-xs font-bold">
               <span className="text-gray-500 uppercase tracking-wider">
@@ -364,7 +364,7 @@ export default function BookingPage(): React.ReactElement {
             </div>
           )}
 
-          <form onSubmit={handleSubmit} noValidate>
+          <form onSubmit={handleSubmit} noValidate className="">
             {/* STEP 1 BLOCK: PERSONAL */}
             {currentStep === 1 && (
               <div className="space-y-5 animate-fade-in">
@@ -374,34 +374,34 @@ export default function BookingPage(): React.ReactElement {
                     Personal Identification Metrics
                   </h2>
                 </div>
-                <div className="space-y-4">
+                <div className="space-y-3">
                   {[
                     {
                       label: "Full Identity Name",
                       name: "name",
                       type: "text",
-                      placeholder: "John Doe",
+                      placeholder: "Full Name",
                       icon: <User className="w-4 h-4 text-gray-400" />,
-                    },
-                    {
-                      label: "Communication Email Node",
-                      name: "email",
-                      type: "email",
-                      placeholder: "john@example.com",
-                      icon: <Mail className="w-4 h-4 text-gray-400" />,
                     },
                     {
                       label: "Active Mobile Index",
                       name: "phone",
                       type: "tel",
-                      placeholder: "+91 XXXXX XXXXX",
+                      placeholder: "Mobile Number...",
                       icon: <Phone className="w-4 h-4 text-gray-400" />,
                     },
+                    {
+                      label: "Communication Email Node",
+                      name: "email",
+                      type: "email",
+                      placeholder: "Contact email...",
+                      icon: <Mail className="w-4 h-4 text-gray-400" />,
+                    },
                   ].map((field) => (
-                    <div key={field.name} className="space-y-1.5">
-                      <label className="block text-[11px] font-bold uppercase tracking-wider">
+                    <div key={field.name} className="space-y-1">
+                      {/* <label className="block text-[11px] font-bold uppercase tracking-wider">
                         {field.label}
-                      </label>
+                      </label> */}
                       <div className="relative">
                         <div className="absolute left-4 top-1/2 -translate-y-1/2">
                           {field.icon}
@@ -602,12 +602,12 @@ export default function BookingPage(): React.ReactElement {
             )}
 
             {/* WIZARD ACTIONS NAVIGATOR FOOTER */}
-            <div className="flex items-center justify-between mt-8 pt-6 border-t border-gray-50 dark:border-gray-800/80">
+            <div className="flex items-center justify-between mt-4 pt-3 border-t border-gray-50 dark:border-gray-800/80">
               {currentStep > 1 ? (
                 <button
                   type="button"
                   onClick={handlePrevious}
-                  className="flex items-center space-x-2 text-xs uppercase tracking-wider font-bold text-gray-400 hover:text-gray-800 dark:hover:text-white transition-colors px-4 py-2.5 rounded-xl border border-transparent hover:bg-gray-50 dark:hover:bg-gray-800"
+                  className="flex items-center space-x-2 text-xs uppercase tracking-wider font-bold text-gray-400 hover:text-gray-800 dark:hover:text-white transition-colors px-4 py-2 rounded-xl border border-transparent hover:bg-gray-50 dark:hover:bg-gray-800"
                 >
                   <ArrowLeft className="w-4 h-4" /> <span>Back</span>
                 </button>
@@ -619,7 +619,7 @@ export default function BookingPage(): React.ReactElement {
                 <button
                   type="button"
                   onClick={handleNext}
-                  className="flex items-center space-x-2 bg-[#0C4587] hover:bg-[#5EBC23] text-white text-xs uppercase tracking-widest font-black px-6 py-3.5 rounded-xl shadow-md transition-all duration-300"
+                  className="flex items-center space-x-2 bg-[#0C4587] hover:bg-[#5EBC23] text-white text-xs uppercase tracking-widest font-black px-6 py-2 rounded-xl shadow-md transition-all duration-300"
                 >
                   <span>Proceed</span> <ArrowRight className="w-4 h-4" />
                 </button>
@@ -627,7 +627,7 @@ export default function BookingPage(): React.ReactElement {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="flex items-center space-x-2 bg-[#5EBC23] hover:bg-[#0C4587] text-white text-xs uppercase tracking-widest font-black px-8 py-3.5 rounded-xl shadow-md transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="flex items-center space-x-2 bg-[#5EBC23] hover:bg-[#0C4587] text-white text-xs uppercase tracking-widest font-black px-8 py-2 rounded-xl shadow-md transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {isSubmitting ? (
                     <>
