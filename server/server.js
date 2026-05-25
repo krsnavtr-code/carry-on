@@ -1,9 +1,17 @@
-const express = require("express");
-const cors = require("cors");
-const helmet = require("helmet");
-const morgan = require("morgan");
-require("dotenv").config();
-const connectDB = require("./config/db");
+import express from "express";
+import cors from "cors";
+import helmet from "helmet";
+import morgan from "morgan";
+import dotenv from "dotenv";
+import dns from "dns";
+import connectDB from "./config/db.js";
+
+dotenv.config();
+
+// Only set DNS in development/local environment
+if (process.env.NODE_ENV !== "production") {
+  dns.setServers(["8.8.8.8", "8.8.4.4"]);
+}
 
 // Connect to Database
 connectDB();
