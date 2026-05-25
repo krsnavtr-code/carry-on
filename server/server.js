@@ -5,6 +5,7 @@ import morgan from "morgan";
 import dotenv from "dotenv";
 import dns from "dns";
 import connectDB from "./config/db.js";
+import { bookingRoutes } from "./routes/bookingRoutes.js";
 
 dotenv.config();
 
@@ -30,6 +31,9 @@ if (process.env.NODE_ENV === "development") {
 app.get("/", (req, res) => {
   res.json({ message: "Carry-On API running successfully!" });
 });
+
+// Booking Routes
+app.use("/api", bookingRoutes);
 
 // Port configuration
 const PORT = process.env.PORT || 5000;

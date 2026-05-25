@@ -144,15 +144,34 @@ export default function BookingPage(): React.ReactElement {
     if (!validateStep(4)) return;
 
     const emailData = {
-      to: "connect@carry-on.in",
       cc: formData.email,
       subject: `New Booking Request - ${formData.name}`,
       selectedVehicle: selectedCarId,
       body: formData,
     };
 
-    console.log("Dispatched Payload System:", emailData);
-    setIsSubmitted(true);
+    try {
+      const response = await fetch("http://localhost:5000/api/booking", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(emailData),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        console.log("Emails sent successfully:", result);
+        setIsSubmitted(true);
+      } else {
+        console.error("Failed to send emails:", result.message);
+        alert("Failed to submit booking. Please try again.");
+      }
+    } catch (error) {
+      console.error("Error submitting booking:", error);
+      alert("An error occurred. Please try again.");
+    }
 
     setTimeout(() => {
       setIsSubmitted(false);
