@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useTheme } from "./ThemeProvider";
+import { useAuth } from "../context/AuthContext";
 import {
   Menu,
   X,
@@ -14,11 +15,17 @@ import {
   Info,
   Moon,
   Sun,
+  LogIn,
+  LogOut,
+  User,
+  ChevronDown,
 } from "lucide-react";
 
 export default function Navbar() {
   const { theme, toggleTheme } = useTheme();
+  const { user, logout } = useAuth();
   const [isOpen, setIsOpen] = useState(false);
+  const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
   const pathname = usePathname();
 
   const navLinks = [
@@ -110,6 +117,61 @@ export default function Navbar() {
               )}
             </button>
 
+            {/* Auth Buttons */}
+            {user ? (
+              <>
+                {/* User Menu */}
+                <div className="relative">
+                  <button
+                    onClick={() => setIsUserMenuOpen(!isUserMenuOpen)}
+                    className="flex items-center space-x-2 px-3 py-1.5 rounded-xl bg-gray-50 dark:bg-gray-900 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 border border-gray-100 dark:border-gray-800 transition-all duration-200"
+                  >
+                    <User className="w-4 h-4" />
+                    <span className="text-sm font-medium">{user.name}</span>
+                    <ChevronDown className="w-4 h-4" />
+                  </button>
+
+                  {/* User Dropdown */}
+                  {isUserMenuOpen && (
+                    <div className="absolute right-0 mt-2 w-48 bg-white dark:bg-gray-950 rounded-xl shadow-lg border border-gray-100 dark:border-gray-800 py-2 z-50">
+                      <div className="px-4 py-2 border-b border-gray-100 dark:border-gray-800">
+                        <p className="text-sm font-medium text-gray-900 dark:text-white">
+                          {user.name}
+                        </p>
+                        <p className="text-xs text-gray-500 dark:text-gray-400">
+                          {user.email}
+                        </p>
+                        <span className="inline-block mt-1 text-xs px-2 py-0.5 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 capitalize">
+                          {user.role}
+                        </span>
+                      </div>
+                      <button
+                        onClick={() => {
+                          logout();
+                          setIsUserMenuOpen(false);
+                        }}
+                        className="w-full flex items-center px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-900 transition-colors"
+                      >
+                        <LogOut className="w-4 h-4 mr-2" />
+                        Logout
+                      </button>
+                    </div>
+                  )}
+                </div>
+              </>
+            ) : (
+              <>
+                {/* Login Button */}
+                <Link
+                  href="/auth/login"
+                  className="flex items-center space-x-1 px-3 py-1.5 rounded-xl bg-gray-50 dark:bg-gray-900 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 border border-gray-100 dark:border-gray-800 transition-all duration-200 font-medium text-sm"
+                >
+                  <LogIn className="w-4 h-4" />
+                  <span>Login</span>
+                </Link>
+              </>
+            )}
+
             {/* Premium Dynamic 'Book Now' Button */}
             <Link
               href="/booking"
@@ -172,7 +234,51 @@ export default function Navbar() {
             </Link>
           ))}
 
-          <div className="pt-4 border-t border-gray-100 dark:border-gray-900">
+          <div className="pt-4 border-t border-gray-100 dark:border-gray-900 space-y-2">
+            {user ? (
+              <>
+                <div className="px-4 py-2 bg-gray-50 dark:bg-gray-900 rounded-xl">
+                  <p className="text-sm font-medium text-gray-900 dark:text-white">
+                    {user.name}
+                  </p>
+                  <p className="text-xs text-gray-500 dark:text-gray-400">
+                    {user.email}
+                  </p>
+                  <span className="inline-block mt-1 text-xs px-2 py-0.5 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 capitalize">
+                    {user.role}
+                  </span>
+                </div>
+                <button
+                  onClick={() => {
+                    logout();
+                    setIsOpen(false);
+                  }}
+                  className="flex w-full items-center justify-center space-x-2 px-4 py-2 rounded-xl bg-gray-100 dark:bg-gray-900 text-gray-700 dark:text-gray-300 font-medium"
+                >
+                  <LogOut className="w-4 h-4" />
+                  <span>Logout</span>
+                </button>
+              </>
+            ) : (
+              <>
+                <Link
+                  href="/auth/login"
+                  onClick={() => setIsOpen(false)}
+                  className="flex w-full items-center justify-center space-x-2 px-4 py-2 rounded-xl bg-gray-100 dark:bg-gray-900 text-gray-700 dark:text-gray-300 font-medium"
+                >
+                  <LogIn className="w-4 h-4" />
+                  <span>Login</span>
+                </Link>
+                <Link
+                  href="/auth/register"
+                  onClick={() => setIsOpen(false)}
+                  className="flex w-full items-center justify-center space-x-2 px-4 py-2 rounded-xl bg-gradient-to-r from-[#0C4587] to-[#0A3C73] text-white font-medium"
+                >
+                  <User className="w-4 h-4" />
+                  <span>Register</span>
+                </Link>
+              </>
+            )}
             <Link
               href="/booking"
               onClick={() => setIsOpen(false)}

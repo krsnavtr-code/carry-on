@@ -6,6 +6,7 @@ import dotenv from "dotenv";
 import dns from "dns";
 import connectDB from "./config/db.js";
 import { bookingRoutes } from "./routes/bookingRoutes.js";
+import authRoutes from "./routes/authRoutes.js";
 
 dotenv.config();
 
@@ -34,6 +35,9 @@ app.get("/", (req, res) => {
 
 // Booking Routes
 app.use("/api", bookingRoutes);
+
+// Auth Routes
+app.use("/api/auth", authRoutes);
 
 // Port configuration
 const PORT = process.env.PORT || 5000;
