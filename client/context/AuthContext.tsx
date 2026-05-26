@@ -22,10 +22,19 @@ interface AuthContextType {
     email: string,
     password: string,
     role: "user" | "vendor",
-    phone?: string
+    phone?: string,
   ) => Promise<void>;
   logout: () => void;
   updateUser: (userData: Partial<User>) => void;
+  updateProfile: (
+    name: string,
+    phone?: string,
+    avatar?: string,
+  ) => Promise<void>;
+  changePassword: (
+    currentPassword: string,
+    newPassword: string,
+  ) => Promise<void>;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -90,7 +99,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
     email: string,
     password: string,
     role: "user" | "vendor",
-    phone?: string
+    phone?: string,
   ) => {
     try {
       const response = await fetch(`${API_URL}/api/auth/register`, {
@@ -131,9 +140,71 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
     }
   };
 
+  const updateProfile = async (
+    name: string,
+    phone?: string,
+    avatar?: string,
+  ) => {
+    try {
+      const response = await fetch(`${API_URL}/api/auth/profile`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({ name, phone, avatar }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.message || "Profile update failed");
+      }
+
+      setUser(data.user);
+      localStorage.setItem("user", JSON.stringify(data.user));
+    } catch (error) {
+      throw error;
+    }
+  };
+
+  const changePassword = async (
+    currentPassword: string,
+    newPassword: string,
+  ) => {
+    try {
+      const response = await fetch(`${API_URL}/api/auth/password`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({ currentPassword, newPassword }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.message || "Password change failed");
+      }
+    } catch (error) {
+      throw error;
+    }
+  };
+
   return (
     <AuthContext.Provider
-      value={{ user, token, loading, login, register, logout, updateUser }}
+      value={{
+        user,
+        token,
+        loading,
+        login,
+        register,
+        logout,
+        updateUser,
+        updateProfile,
+        changePassword,
+      }}
     >
       {children}
     </AuthContext.Provider>

@@ -145,6 +145,14 @@ export default function Navbar() {
                           {user.role}
                         </span>
                       </div>
+                      <Link
+                        href="/profile"
+                        onClick={() => setIsUserMenuOpen(false)}
+                        className="w-full flex items-center px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-900 transition-colors"
+                      >
+                        <User className="w-4 h-4 mr-2" />
+                        Profile
+                      </Link>
                       <button
                         onClick={() => {
                           logout();
@@ -248,6 +256,14 @@ export default function Navbar() {
                     {user.role}
                   </span>
                 </div>
+                <Link
+                  href="/profile"
+                  onClick={() => setIsOpen(false)}
+                  className="flex w-full items-center justify-center space-x-2 px-4 py-2 rounded-xl bg-gray-100 dark:bg-gray-900 text-gray-700 dark:text-gray-300 font-medium"
+                >
+                  <User className="w-4 h-4" />
+                  <span>Profile</span>
+                </Link>
                 <button
                   onClick={() => {
                     logout();
