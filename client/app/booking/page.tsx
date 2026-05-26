@@ -1,6 +1,12 @@
 "use client";
 
-import React, { useState, useEffect, ChangeEvent, FormEvent } from "react";
+import React, {
+  useState,
+  useEffect,
+  ChangeEvent,
+  FormEvent,
+  Suspense,
+} from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import {
   User,
@@ -35,7 +41,7 @@ interface FormErrors {
   [key: string]: string;
 }
 
-export default function BookingPage(): React.ReactElement {
+function BookingFormContent() {
   const searchParams = useSearchParams();
   const router = useRouter();
 
@@ -666,5 +672,19 @@ export default function BookingPage(): React.ReactElement {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function BookingPage(): React.ReactElement {
+  return (
+    <Suspense
+      fallback={
+        <div className="min-h-screen flex items-center justify-center">
+          Loading...
+        </div>
+      }
+    >
+      <BookingFormContent />
+    </Suspense>
   );
 }
