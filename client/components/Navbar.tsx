@@ -56,25 +56,34 @@ export default function Navbar() {
         <div className="flex justify-between items-center h-14">
           {/* Logo Section matched with your Brand identity */}
           <div className="flex items-center">
-            <Link href="/" className="flex items-center space-x-2 group">
-              <div className="relative flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-br from-[#0C4587] to-[#5EBC23] p-[2px] shadow-md shadow-blue-500/10">
-                <div className="w-full h-full bg-white dark:bg-gray-950 rounded-[10px] flex items-center justify-center">
-                  <span className="text-[#0C4587] dark:text-blue-400 font-black text-xl italic tracking-tighter">
-                    CR
-                  </span>
-                </div>
-              </div>
-              <div className="flex flex-col">
-                <span className="text-xl sm:text-2xl font-black tracking-tight text-gray-900 dark:text-white">
-                  <span className="text-[#0C4587] dark:text-blue-500">
-                    CARRY
-                  </span>
-                  <span className="text-[#5EBC23]">ON</span>
-                </span>
-                <span className="text-[10px] uppercase font-bold tracking-widest text-gray-400 dark:text-gray-500 -mt-1 flex items-center">
-                  Car Rental <span className="text-[#D48C3B] ml-1">★</span>
-                </span>
-              </div>
+            <Link
+              href="/"
+              className="flex items-center group relative px-4 py-2 rounded-xl transition-all duration-300"
+            >
+              {/* ========================================================================= */}
+              {/* SIGNBOARD BACK-LIT LED GLOW ENGINE (Visible only in Dark Mode)           */}
+              {/* ========================================================================= */}
+
+              {/* Layer A: High-Radius Diffuse Ambient Glow (Gives the deep wall-wash effect) */}
+              <div className="absolute inset-x-2 inset-y-2 bg-transparent dark:bg-white/15 rounded-full blur-2xl scale-150 opacity-100 group-hover:opacity-100 dark:group-hover:bg-white/20 transition-all duration-500 pointer-events-none -z-20" />
+
+              {/* Layer B: Ultra-Bright Core Glow (This mimics the actual raw LED white light source behind the panel) */}
+              {/* <div className="absolute inset-x-6 inset-y-3 bg-transparent dark:bg-white/40 rounded-full blur-md opacity-90 group-hover:opacity-100 dark:group-hover:bg-white/60 shadow-[0_0_25px_rgba(255,255,255,0.6)] dark:shadow-[0_0_35px_rgba(255,255,255,0.8)] transition-all duration-300 pointer-events-none -z-10" /> */}
+
+              {/* ========================================================================= */}
+              {/* LOGO IMAGE PANEL                                                          */}
+              {/* ========================================================================= */}
+              <img
+                src="/images/logo-nobg.png"
+                alt="Carry-On Car Rental"
+                className="h-10 w-auto object-contain transition-all duration-300 relative z-10 
+                 
+                 /* Light Mode Defaut */
+                 drop-shadow-none
+
+                 /* Dark Mode: Crisp edge silhouette definition to make the graphic pop over intense background emission */
+                 dark:drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]"
+              />
             </Link>
           </div>
 
@@ -127,8 +136,8 @@ export default function Navbar() {
                     className="flex items-center space-x-2 px-3 py-1.5 rounded-xl bg-gray-50 dark:bg-gray-900 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 border border-gray-100 dark:border-gray-800 transition-all duration-200"
                   >
                     <User className="w-4 h-4" />
-                    <span className="text-sm font-medium">{user.name}</span>
-                    <ChevronDown className="w-4 h-4" />
+                    {/* <span className="text-sm font-medium">{user.name}</span> */}
+                    {/* <ChevronDown className="w-4 h-4" /> */}
                   </button>
 
                   {/* User Dropdown */}
@@ -141,9 +150,9 @@ export default function Navbar() {
                         <p className="text-xs text-gray-500 dark:text-gray-400">
                           {user.email}
                         </p>
-                        <span className="inline-block mt-1 text-xs px-2 py-0.5 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 capitalize">
+                        {/* <span className="inline-block mt-1 text-xs px-2 py-0.5 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 capitalize">
                           {user.role}
-                        </span>
+                        </span> */}
                       </div>
                       <Link
                         href="/profile"
@@ -252,9 +261,9 @@ export default function Navbar() {
                   <p className="text-xs text-gray-500 dark:text-gray-400">
                     {user.email}
                   </p>
-                  <span className="inline-block mt-1 text-xs px-2 py-0.5 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 capitalize">
+                  {/* <span className="inline-block mt-1 text-xs px-2 py-0.5 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 capitalize">
                     {user.role}
-                  </span>
+                  </span> */}
                 </div>
                 <Link
                   href="/profile"
