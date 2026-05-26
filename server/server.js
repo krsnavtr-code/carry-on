@@ -4,9 +4,17 @@ import helmet from "helmet";
 import morgan from "morgan";
 import dotenv from "dotenv";
 import dns from "dns";
+import { createRequire } from "module";
 import connectDB from "./config/db.js";
 import { bookingRoutes } from "./routes/bookingRoutes.js";
 import authRoutes from "./routes/authRoutes.js";
+
+// Polyfill for crypto module
+const require = createRequire(import.meta.url);
+const crypto = require("crypto");
+if (typeof global.crypto === "undefined") {
+  global.crypto = crypto;
+}
 
 dotenv.config();
 
