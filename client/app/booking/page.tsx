@@ -154,7 +154,7 @@ export default function BookingPage(): React.ReactElement {
     };
 
     try {
-      const response = await fetch("http://localhost:5000/api/booking", {
+      const response = await fetch("http://localhost:5001/api/booking", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

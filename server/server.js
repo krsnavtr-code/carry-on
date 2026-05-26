@@ -40,7 +40,7 @@ app.use("/api", bookingRoutes);
 app.use("/api/auth", authRoutes);
 
 // Port configuration
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5001;
 
 app.listen(PORT, () => {
   console.log(

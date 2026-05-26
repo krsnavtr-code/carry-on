@@ -18,7 +18,7 @@ Copy the `.env.example` file in the `server` directory to `.env` and update the 
 
 ```env
 # Server Configuration
-PORT=5000
+PORT=5001
 NODE_ENV=development
 
 # JWT Secret (IMPORTANT: Change this in production!)
@@ -41,7 +41,7 @@ npm install
 npm run dev
 ```
 
-The server will run on `http://localhost:5000`
+The server will run on `http://localhost:5001`
 
 ## Frontend Setup
 
@@ -50,7 +50,7 @@ The server will run on `http://localhost:5000`
 Create a `.env.local` file in the `client` directory with the following:
 
 ```env
-NEXT_PUBLIC_API_URL=http://localhost:5000
+NEXT_PUBLIC_API_URL=http://localhost:5001
 ```
 
 ### 2. Install Dependencies
