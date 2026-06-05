@@ -66,6 +66,20 @@ function BookingFormContent() {
     untilTime: "",
   });
 
+  // Auto-fill form data from URL parameters (from HeroBanner)
+  useEffect(() => {
+    const pickup = searchParams.get("pickup");
+    const date = searchParams.get("date");
+
+    if (pickup || date) {
+      setFormData((prev) => ({
+        ...prev,
+        pickupLocation: pickup || prev.pickupLocation,
+        fromDate: date || prev.fromDate,
+      }));
+    }
+  }, [searchParams]);
+
   // Strict local real-time validation handler
   const validateField = (name: string, value: string): string => {
     if (!value.trim()) return "This field parameter is required";
