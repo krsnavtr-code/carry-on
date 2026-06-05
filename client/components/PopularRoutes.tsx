@@ -9,7 +9,6 @@ import {
   ArrowRight,
   Navigation,
   Map,
-  BadgeCent,
 } from "lucide-react";
 
 // 1. TYPESCRIPT INTERFACES FOR TYPE SAFETY
@@ -19,7 +18,7 @@ interface RouteCard {
   destination: string;
   distance: string;
   duration: string;
-  basePrice: number;
+  carImage: string; // BasePrice ki jagah Car ki photo add ki
   routeType: "Business" | "Leisure" | "Gateway";
   tag?: string;
   popular?: boolean;
@@ -31,10 +30,11 @@ export default function PopularRoutes(): React.ReactElement {
     {
       id: "route-01",
       source: "Delhi Hub",
-      destination: "Agria (Taj Express)",
+      destination: "Agra (Taj Express)",
       distance: "230 KM",
       duration: "3.5 Hours",
-      basePrice: 4499,
+      carImage:
+        "https://www.trivixam.com/api/upload/file/banner-31052026-0808.png",
       routeType: "Leisure",
       tag: "Weekend Favorite",
       popular: true,
@@ -45,7 +45,8 @@ export default function PopularRoutes(): React.ReactElement {
       destination: "IGI Airport T3",
       distance: "38 KM",
       duration: "50 Mins",
-      basePrice: 1499,
+      carImage:
+        "https://www.trivixam.com/api/upload/file/banner-31052026-0808.png",
       routeType: "Business",
       tag: "Flat Airport Rate",
     },
@@ -55,7 +56,8 @@ export default function PopularRoutes(): React.ReactElement {
       destination: "Jaipur Pink City",
       distance: "270 KM",
       duration: "5 Hours",
-      basePrice: 5499,
+      carImage:
+        "https://www.trivixam.com/api/upload/file/banner-31052026-0808.png",
       routeType: "Gateway",
       tag: "Corporate Circuit",
     },
@@ -65,7 +67,8 @@ export default function PopularRoutes(): React.ReactElement {
       destination: "Dehradun / Rishikesh",
       distance: "245 KM",
       duration: "4.5 Hours",
-      basePrice: 4999,
+      carImage:
+        "https://www.trivixam.com/api/upload/file/banner-31052026-0808.png",
       routeType: "Leisure",
       tag: "Himalayan Corridor",
       popular: true,
@@ -76,7 +79,8 @@ export default function PopularRoutes(): React.ReactElement {
       destination: "Chandigarh Express",
       distance: "260 KM",
       duration: "4 Hours",
-      basePrice: 5199,
+      carImage:
+        "https://www.trivixam.com/api/upload/file/banner-31052026-0808.png",
       routeType: "Business",
     },
     {
@@ -85,84 +89,91 @@ export default function PopularRoutes(): React.ReactElement {
       destination: "Haridwar Divine",
       distance: "210 KM",
       duration: "4 Hours",
-      basePrice: 3999,
+      carImage:
+        "https://www.trivixam.com/api/upload/file/banner-31052026-0808.png",
       routeType: "Gateway",
     },
   ];
 
   return (
-    <section className="bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-gray-100 transition-colors duration-300 py-12 relative overflow-hidden">
+    <section className="bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-gray-100 transition-colors duration-300 py-12 md:py-16 relative overflow-hidden">
       {/* Background Decorative Mesh Elements */}
-      <div className="absolute top-0 right-1/4 w-96 h-96 bg-[#0C4587]/5 rounded-full blur-3xl pointer-events-none -z-10" />
+      <div className="absolute top-0 right-1/4 w-72 h-72 bg-[#0C4587]/5 rounded-full blur-3xl pointer-events-none -z-10" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
-        {/* SECTION HEADER BLOCK */}
-        <div className="text-center space-y-4 max-w-5xl mx-auto">
-          <h2 className="text-2xl md:text-4xl font-black tracking-tight text-gray-900 dark:text-white leading-none">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10 md:space-y-12">
+        {/* SECTION HEADER BLOCK (Compacted) */}
+        <div className="text-center space-y-3 max-w-3xl mx-auto">
+          <div className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-blue-50 dark:bg-gray-900 border border-blue-100 dark:border-gray-800 rounded-full mb-2 shadow-sm transition-colors duration-300">
+            <TrendingUp className="w-3 h-3 text-[#0C4587] dark:text-blue-400" />
+            <span className="text-[9px] font-black text-[#0C4587] dark:text-gray-200 uppercase tracking-widest">
+              Top Destinations
+            </span>
+          </div>
+
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-black tracking-tight text-gray-900 dark:text-white leading-tight">
             Popular{" "}
             <span className="bg-gradient-to-r from-[#0C4587] to-[#5EBC23] bg-clip-text text-transparent">
               Routes
             </span>{" "}
             & Lines
           </h2>
-          <p className="text-xs md:text-sm font-semibold">
+          <p className="text-xs sm:text-sm font-medium text-gray-600 dark:text-gray-400">
             Fixed flat rate packages optimized for popular regional circuits.
-            Zero hidden toll surcharge surprises.
+            Select a route and choose your perfect ride.
           </p>
-          <div className="w-16 h-1 bg-gradient-to-r from-[#0C4587] to-[#5EBC23] mx-auto rounded-full" />
         </div>
 
         {/* 3-COLUMN RESPONSIVE ROUTES GRID */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">
           {routes.map((route) => (
             <div
               key={route.id}
-              className={`bg-white dark:bg-gray-900 border rounded-xl p-2 md:p-6 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between relative group hover:-translate-y-1 ${
+              className={`bg-white dark:bg-[#0A1120] border rounded-2xl p-4 sm:p-5 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between relative group hover:-translate-y-1 ${
                 route.popular
-                  ? "border-blue-500/40 ring-4 ring-blue-500/5"
-                  : "border-gray-200 dark:border-gray-900 hover:border-gray-200"
+                  ? "border-blue-200 dark:border-blue-900/50 ring-4 ring-blue-50 dark:ring-blue-900/10"
+                  : "border-gray-200 dark:border-gray-800 hover:border-gray-300 dark:hover:border-gray-700"
               }`}
             >
               {/* Floating Route Badge */}
               {route.tag && (
-                <span className="absolute -top-3 left-6 bg-gradient-to-r from-[#0C4587] to-blue-600 text-white text-[9px] uppercase font-black tracking-widest px-3 py-1 rounded-full shadow-sm">
+                <span className="absolute -top-2.5 left-5 bg-gradient-to-r from-[#0C4587] to-[#0A3C73] text-white text-[8px] sm:text-[9px] uppercase font-black tracking-widest px-2.5 py-1 rounded-full shadow-md border border-[#0C4587]">
                   <Sparkles className="w-2.5 h-2.5 mr-1 text-yellow-300 fill-yellow-300 inline" />{" "}
                   {route.tag}
                 </span>
               )}
 
-              <div className="space-y-3 pt-2">
+              <div className="space-y-4 pt-1.5">
                 {/* Visual Trajectory Representation Node */}
-                <div className="flex items-start space-x-4 relative">
+                <div className="flex items-start space-x-3.5 relative">
                   {/* Vertical Dash Line Layout */}
-                  <div className="absolute left-5.5 top-7 bottom-7 w-0.5 border-l-2 border-dashed border-gray-200 dark:border-gray-800" />
+                  <div className="absolute left-1.5 top-5 bottom-5 w-px border-l border-dashed border-gray-300 dark:border-gray-700" />
 
-                  <div className="space-y-6 w-full">
+                  <div className="space-y-4 w-full">
                     {/* Source Block */}
-                    <div className="flex items-center space-x-3">
-                      <div className="w-4 h-4 rounded-full bg-blue-100 dark:bg-blue-950 flex items-center justify-center border border-[#0C4587]">
+                    <div className="flex items-center space-x-2.5">
+                      <div className="w-3.5 h-3.5 rounded-full bg-blue-50 dark:bg-blue-900/30 flex items-center justify-center border border-[#0C4587] relative z-10">
                         <div className="w-1.5 h-1.5 rounded-full bg-[#0C4587]" />
                       </div>
                       <div>
-                        <span className="text-[10px] uppercase font-bold border-gray-200tracking-wider block">
+                        <span className="text-[9px] uppercase font-black text-gray-400 dark:text-gray-500 tracking-wider block leading-none mb-0.5">
                           Origin
                         </span>
-                        <h4 className="text-sm font-bold text-gray-600 dark:text-gray-400">
+                        <h4 className="text-xs sm:text-sm font-bold text-gray-700 dark:text-gray-300 leading-tight">
                           {route.source}
                         </h4>
                       </div>
                     </div>
 
                     {/* Destination Block */}
-                    <div className="flex items-center space-x-3">
-                      <div className="w-4 h-4 rounded-full bg-green-100 dark:bg-green-950 flex items-center justify-center border border-[#5EBC23]">
+                    <div className="flex items-center space-x-2.5">
+                      <div className="w-3.5 h-3.5 rounded-full bg-green-50 dark:bg-green-900/30 flex items-center justify-center border border-[#5EBC23] relative z-10">
                         <div className="w-1.5 h-1.5 rounded-full bg-[#5EBC23]" />
                       </div>
                       <div>
-                        <span className="text-[10px] uppercase font-bold border-gray-200tracking-wider block">
+                        <span className="text-[9px] uppercase font-black text-gray-400 dark:text-gray-500 tracking-wider block leading-none mb-0.5">
                           Destination Corridor
                         </span>
-                        <h4 className="text-base font-black text-gray-900 dark:text-white group-hover:text-[#0C4587] dark:group-hover:text-blue-400 transition-colors">
+                        <h4 className="text-sm sm:text-base font-black text-gray-900 dark:text-white group-hover:text-[#0C4587] dark:group-hover:text-[#5EBC23] transition-colors leading-tight">
                           {route.destination}
                         </h4>
                       </div>
@@ -171,43 +182,39 @@ export default function PopularRoutes(): React.ReactElement {
                 </div>
 
                 {/* Metadata Horizontal Badges (Distance / Duration) */}
-                <div className="grid grid-cols-2 gap-3 bg-gray-50 dark:bg-gray-950 px-3 py-1.5 rounded-2xl border border-gray-200 dark:border-gray-800/40 text-xs font-bold text-gray-600 dark:text-gray-400">
-                  <div className="flex items-center space-x-1.5">
-                    <Map className="w-3.5 h-3.5 text-gray-600 dark:text-gray-400" />
+                <div className="flex items-center gap-2 bg-gray-50 dark:bg-gray-900/50 px-3 py-2 rounded-xl border border-gray-100 dark:border-gray-800 text-[10px] sm:text-xs font-bold text-gray-600 dark:text-gray-400">
+                  <div className="flex items-center gap-1.5 flex-1 justify-center">
+                    <Map className="w-3.5 h-3.5 text-gray-400" />
                     <span>{route.distance}</span>
                   </div>
-                  <div className="flex items-center space-x-1.5 border-l border-gray-200 dark:border-gray-800 pl-3">
-                    <Navigation className="w-3.5 h-3.5 text-gray-600 dark:text-gray-400" />
+                  <div className="w-px h-3 bg-gray-300 dark:bg-gray-700"></div>
+                  <div className="flex items-center gap-1.5 flex-1 justify-center">
+                    <Navigation className="w-3 h-3 text-gray-400" />
                     <span>{route.duration}</span>
                   </div>
                 </div>
               </div>
 
-              {/* Pricing & Booking Query Forward CTA Footer */}
-              <div className="mt-6 pt-4 border-t border-gray-50 dark:border-gray-800/50 flex items-center justify-between">
-                <div>
-                  <span className="text-[10px] font-bold border-gray-200uppercase tracking-widest block">
-                    Flat Standard Rate
-                  </span>
-                  <div className="flex items-baseline">
-                    <span className="text-xl font-black text-gray-900 dark:text-white">
-                      ₹{route.basePrice.toLocaleString("en-IN")}
-                    </span>
-                    <span className="text-[10px] font-bold border-gray-200ml-0.5">
-                      /One-Way
-                    </span>
-                  </div>
+              {/* Dynamic Car Photo & Booking Query CTA Footer */}
+              <div className="mt-5 pt-4 border-t border-gray-100 dark:border-gray-800/80 flex items-center justify-between overflow-hidden">
+                {/* The Car Photo Replacement (with hover animation) */}
+                <div className="relative h-11 w-32 -ml-2 -mb-1">
+                  <img
+                    src={route.carImage}
+                    alt="Fleet Car"
+                    className="w-full h-full object-contain object-left drop-shadow-lg group-hover:translate-x-2 transition-transform duration-500 ease-out"
+                  />
                 </div>
 
-                {/* Pre-formatted url link queries parameters targeting dynamic booking wizard component */}
+                {/* Booking Link Button */}
                 <Link
                   href={`/booking?pickup=${encodeURIComponent(route.source)}&dropoff=${encodeURIComponent(route.destination)}`}
-                  className="inline-flex items-center justify-center bg-gray-50 dark:bg-gray-950 hover:bg-[#5EBC23] border border-gray-200 dark:border-gray-800 text-gray-700 dark:text-gray-300 hover:text-white p-3 rounded-xl transition-all duration-200 group/btn shadow-sm"
+                  className="inline-flex items-center justify-center bg-gray-100 dark:bg-gray-800 hover:bg-[#5EBC23] dark:hover:bg-[#5EBC23] border border-gray-200 dark:border-gray-700 hover:border-[#5EBC23] text-gray-700 dark:text-gray-300 hover:text-white p-2.5 rounded-xl transition-all duration-300 group/btn shadow-sm z-10"
                 >
-                  <span className="text-xs font-black uppercase tracking-wider hidden group-hover:inline mr-1.5 animate-fade-in">
-                    Book Line
+                  <span className="text-[10px] sm:text-xs font-black uppercase tracking-wider hidden group-hover:inline mr-1.5 animate-fade-in">
+                    Book
                   </span>
-                  <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+                  <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 group-hover/btn:translate-x-1 transition-transform" />
                 </Link>
               </div>
             </div>

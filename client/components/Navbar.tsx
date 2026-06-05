@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useTheme } from "./ThemeProvider";
@@ -26,7 +26,17 @@ export default function Navbar() {
   const { user, logout } = useAuth();
   const [isOpen, setIsOpen] = useState(false);
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20); // 20px tak smooth rahega
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const navLinks = [
     { name: "Home", href: "/", icon: <MenuSquare className="w-4 h-4 mr-2" /> },
@@ -51,37 +61,27 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="bg-white dark:bg-gray-950 border-b border-gray-100 dark:border-gray-900 sticky top-0 z-50 transition-colors duration-300">
+    <nav
+      className={`fixed w-full top-0 z-50 transition-all duration-500 border-b ${
+        isScrolled
+          ? "bg-white/85 dark:bg-[#050B14]/85 backdrop-blur-xl border-gray-200 dark:border-white/10 shadow-lg shadow-black/5 dark:shadow-black/40 py-1"
+          : "bg-transparent border-transparent py-2"
+      }`}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-14">
-          {/* Logo Section matched with your Brand identity */}
+          {/* Logo Section */}
           <div className="flex items-center">
             <Link
               href="/"
-              className="flex items-center group relative px-4 py-2 rounded-xl transition-all duration-300"
+              className="flex items-center group relative px-2 py-2 rounded-xl transition-all duration-300"
             >
-              {/* ========================================================================= */}
-              {/* SIGNBOARD BACK-LIT LED GLOW ENGINE (Visible only in Dark Mode)           */}
-              {/* ========================================================================= */}
-
-              {/* Layer A: High-Radius Diffuse Ambient Glow (Gives the deep wall-wash effect) */}
               <div className="absolute inset-x-2 inset-y-2 bg-transparent dark:bg-white/15 rounded-full blur-2xl scale-150 opacity-100 group-hover:opacity-100 dark:group-hover:bg-white/20 transition-all duration-500 pointer-events-none -z-20" />
-
-              {/* Layer B: Ultra-Bright Core Glow (This mimics the actual raw LED white light source behind the panel) */}
-              {/* <div className="absolute inset-x-6 inset-y-3 bg-transparent dark:bg-white/40 rounded-full blur-md opacity-90 group-hover:opacity-100 dark:group-hover:bg-white/60 shadow-[0_0_25px_rgba(255,255,255,0.6)] dark:shadow-[0_0_35px_rgba(255,255,255,0.8)] transition-all duration-300 pointer-events-none -z-10" /> */}
-
-              {/* ========================================================================= */}
-              {/* LOGO IMAGE PANEL                                                          */}
-              {/* ========================================================================= */}
               <img
                 src="/images/logo-nobg.png"
                 alt="Carry-On Car Rental"
                 className="h-10 w-auto object-contain transition-all duration-300 relative z-10 
-                 
-                 /* Light Mode Defaut */
                  drop-shadow-none
-
-                 /* Dark Mode: Crisp edge silhouette definition to make the graphic pop over intense background emission */
                  dark:drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]"
               />
             </Link>
@@ -93,15 +93,21 @@ export default function Navbar() {
               <Link
                 key={link.name}
                 href={link.href}
-                className={`relative font-semibold px-2.5 py-1 rounded-lg text-sm transition-all duration-200 ${
+                className={`relative font-semibold px-3 py-1.5 rounded-lg text-sm transition-all duration-300 ${
                   isActive(link.href)
-                    ? "text-[#0C4587] dark:text-blue-400 bg-blue-100 dark:bg-blue-900/30"
-                    : "text-gray-600 dark:text-gray-300 hover:text-[#0C4587] dark:hover:text-blue-400"
+                    ? isScrolled
+                      ? "text-[#0C4587] dark:text-[#5EBC23] bg-[#0C4587]/10 dark:bg-[#5EBC23]/10"
+                      : "text-white bg-white/20 backdrop-blur-md shadow-inner shadow-white/10"
+                    : isScrolled
+                      ? "text-gray-600 dark:text-gray-300 hover:text-[#0C4587] dark:hover:text-[#5EBC23] hover:bg-gray-100 dark:hover:bg-white/5"
+                      : "text-gray-200 hover:text-white hover:bg-white/10"
                 } group`}
               >
                 {link.name}
                 <span
-                  className={`absolute bottom-1 left-4 right-4 h-[2px] bg-[#5EBC23] transition-transform duration-200 rounded-full ${
+                  className={`absolute bottom-0.5 left-4 right-4 h-[2px] rounded-full transition-transform duration-300 ${
+                    isScrolled ? "bg-[#5EBC23]" : "bg-white"
+                  } ${
                     isActive(link.href)
                       ? "scale-x-100"
                       : "scale-x-0 group-hover:scale-x-100"
@@ -116,83 +122,87 @@ export default function Navbar() {
             {/* Theme Toggle Button */}
             <button
               onClick={toggleTheme}
-              className="p-2 rounded-xl bg-gray-50 dark:bg-gray-900 text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 border border-gray-100 dark:border-gray-800 transition-all duration-200 cursor-pointer"
+              className={`p-2 rounded-xl transition-all duration-300 cursor-pointer ${
+                isScrolled
+                  ? "bg-gray-100 dark:bg-white/5 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-white/10"
+                  : "bg-white/10 text-white hover:bg-white/20 backdrop-blur-sm border border-white/20"
+              }`}
               aria-label="Toggle theme"
             >
               {theme === "light" ? (
-                <Moon className="w-5 h-5" />
+                <Moon className="w-4 h-4" />
               ) : (
-                <Sun className="w-5 h-5 text-yellow-400" />
+                <Sun className="w-4 h-4 text-yellow-400" />
               )}
             </button>
 
             {/* Auth Buttons */}
             {user ? (
-              <>
-                {/* User Menu */}
-                <div className="relative">
-                  <button
-                    onClick={() => setIsUserMenuOpen(!isUserMenuOpen)}
-                    className="flex items-center space-x-2 px-3 py-1.5 rounded-xl bg-gray-50 dark:bg-gray-900 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 border border-gray-100 dark:border-gray-800 transition-all duration-200"
-                  >
-                    <User className="w-4 h-4" />
-                    {/* <span className="text-sm font-medium">{user.name}</span> */}
-                    {/* <ChevronDown className="w-4 h-4" /> */}
-                  </button>
-
-                  {/* User Dropdown */}
-                  {isUserMenuOpen && (
-                    <div className="absolute right-0 mt-2 w-48 bg-white dark:bg-gray-950 rounded-xl shadow-lg border border-gray-100 dark:border-gray-800 py-2 z-50">
-                      <div className="px-4 py-2 border-b border-gray-100 dark:border-gray-800">
-                        <p className="text-sm font-medium text-gray-900 dark:text-white">
-                          {user.name}
-                        </p>
-                        <p className="text-xs text-gray-500 dark:text-gray-400">
-                          {user.email}
-                        </p>
-                        {/* <span className="inline-block mt-1 text-xs px-2 py-0.5 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 capitalize">
-                          {user.role}
-                        </span> */}
-                      </div>
-                      <Link
-                        href="/profile"
-                        onClick={() => setIsUserMenuOpen(false)}
-                        className="w-full flex items-center px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-900 transition-colors"
-                      >
-                        <User className="w-4 h-4 mr-2" />
-                        Profile
-                      </Link>
-                      <button
-                        onClick={() => {
-                          logout();
-                          setIsUserMenuOpen(false);
-                        }}
-                        className="w-full flex items-center px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-900 transition-colors"
-                      >
-                        <LogOut className="w-4 h-4 mr-2" />
-                        Logout
-                      </button>
-                    </div>
-                  )}
-                </div>
-              </>
-            ) : (
-              <>
-                {/* Login Button */}
-                <Link
-                  href="/auth/login"
-                  className="flex items-center space-x-1 px-3 py-1.5 rounded-xl bg-gray-50 dark:bg-gray-900 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 border border-gray-100 dark:border-gray-800 transition-all duration-200 font-medium text-sm"
+              <div className="relative">
+                <button
+                  onClick={() => setIsUserMenuOpen(!isUserMenuOpen)}
+                  className={`flex items-center space-x-2 px-3 py-1.5 rounded-xl transition-all duration-300 ${
+                    isScrolled
+                      ? "bg-gray-100 dark:bg-white/5 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-white/10"
+                      : "bg-white/10 text-white hover:bg-white/20 backdrop-blur-sm border border-white/20"
+                  }`}
                 >
-                  <LogIn className="w-4 h-4" />
-                  <span>Login</span>
-                </Link>
-              </>
+                  <User className="w-4 h-4" />
+                </button>
+
+                {isUserMenuOpen && (
+                  <div className="absolute right-0 mt-3 w-48 bg-white dark:bg-[#0a1120] rounded-xl shadow-xl border border-gray-100 dark:border-white/10 py-2 z-50 overflow-hidden">
+                    <div className="px-4 py-3 border-b border-gray-100 dark:border-white/5 bg-gray-50/50 dark:bg-transparent">
+                      <p className="text-sm font-bold text-gray-900 dark:text-white truncate">
+                        {user.name}
+                      </p>
+                      <p className="text-[11px] font-medium text-gray-500 dark:text-gray-400 truncate mt-0.5">
+                        {user.email}
+                      </p>
+                    </div>
+                    <Link
+                      href="/profile"
+                      onClick={() => setIsUserMenuOpen(false)}
+                      className="w-full flex items-center px-4 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-white/5 hover:text-[#0C4587] dark:hover:text-[#5EBC23] transition-colors"
+                    >
+                      <User className="w-4 h-4 mr-2.5" />
+                      Profile
+                    </Link>
+                    <button
+                      onClick={() => {
+                        logout();
+                        setIsUserMenuOpen(false);
+                      }}
+                      className="w-full flex items-center px-4 py-2.5 text-sm font-medium text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-500/10 transition-colors"
+                    >
+                      <LogOut className="w-4 h-4 mr-2.5" />
+                      Logout
+                    </button>
+                  </div>
+                )}
+              </div>
+            ) : (
+              <Link
+                href="/auth/login"
+                className={`flex items-center space-x-1.5 px-3 py-1.5 rounded-xl transition-all duration-300 font-semibold text-sm ${
+                  isScrolled
+                    ? "text-[#0C4587] dark:text-gray-300 hover:text-[#0C4587] dark:hover:text-white bg-blue-50 dark:bg-white/5 hover:bg-blue-100 dark:hover:bg-white/10"
+                    : "bg-white/10 text-white hover:bg-white/20 backdrop-blur-sm border border-white/20"
+                }`}
+              >
+                <LogIn className="w-4 h-4" />
+                <span>Login</span>
+              </Link>
             )}
 
             {/* Premium Dynamic 'Book Now' Button */}
             <Link
               href="/booking"
-              className="relative overflow-hidden inline-flex items-center justify-center bg-gradient-to-r from-[#0C4587] to-[#0A3C73] hover:from-[#5EBC23] hover:to-[#4CAF50] text-white font-bold text-sm px-4 py-1.5 rounded-xl shadow-md shadow-blue-900/20 hover:shadow-green-500/20 hover:-translate-y-[1px] active:translate-y-0 transition-all duration-300"
+              className={`relative overflow-hidden inline-flex items-center justify-center font-black uppercase tracking-wider text-xs px-5 py-2.5 rounded-xl transition-all duration-300 ${
+                isScrolled
+                  ? "bg-[#5EBC23] hover:bg-[#4CAF50] text-white shadow-lg shadow-green-500/20 hover:-translate-y-0.5"
+                  : "bg-gradient-to-r from-[#0C4587] to-[#0A3C73] hover:from-[#5EBC23] hover:to-[#4CAF50] text-white shadow-xl shadow-black/20 hover:-translate-y-0.5 border border-white/20"
+              }`}
             >
               Book Now
             </Link>
@@ -202,24 +212,31 @@ export default function Navbar() {
           <div className="flex items-center space-x-3 md:hidden">
             <button
               onClick={toggleTheme}
-              className="p-2 rounded-lg bg-gray-50 dark:bg-gray-900 text-gray-600 dark:text-gray-400 border border-gray-100 dark:border-gray-800 "
+              className={`p-2 rounded-xl transition-all duration-300 ${
+                isScrolled
+                  ? "bg-gray-100 dark:bg-white/5 text-gray-600 dark:text-gray-300"
+                  : "bg-white/10 text-white border border-white/20 backdrop-blur-sm"
+              }`}
             >
               {theme === "light" ? (
-                <Moon className="w-5 h-5" />
+                <Moon className="w-4 h-4" />
               ) : (
-                <Sun className="w-5 h-5 text-yellow-400" />
+                <Sun className="w-4 h-4 text-yellow-400" />
               )}
             </button>
 
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="p-1.5 rounded-lg bg-gray-50 dark:bg-gray-900 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 border border-gray-100 dark:border-gray-800 transition-colors"
-              aria-label="Toggle Menu"
+              className={`p-2 rounded-xl transition-all duration-300 ${
+                isScrolled
+                  ? "bg-gray-100 dark:bg-white/5 text-gray-700 dark:text-gray-300"
+                  : "bg-white/10 text-white border border-white/20 backdrop-blur-sm"
+              }`}
             >
               {isOpen ? (
-                <X className="w-6 h-6" />
+                <X className="w-5 h-5" />
               ) : (
-                <Menu className="w-6 h-6" />
+                <Menu className="w-5 h-5" />
               )}
             </button>
           </div>
@@ -228,22 +245,22 @@ export default function Navbar() {
 
       {/* Mobile Menu Panel Drawer */}
       <div
-        className={`md:hidden absolute w-full bg-white dark:bg-gray-950 border-b border-gray-200 dark:border-gray-900 transition-all duration-300 ease-in-out origin-top ${
+        className={`md:hidden absolute w-full bg-white dark:bg-[#050B14] border-b border-gray-200 dark:border-white/10 shadow-2xl transition-all duration-300 ease-in-out origin-top ${
           isOpen
-            ? "opacity-100 scale-y-100 visible h-auto"
-            : "opacity-0 scale-y-0 invisible h-0"
+            ? "opacity-100 scale-y-100 visible"
+            : "opacity-0 scale-y-95 invisible"
         }`}
       >
-        <div className="px-4 pt-2 pb-6 space-y-1">
+        <div className="px-4 py-4 space-y-1.5">
           {navLinks.map((link) => (
             <Link
               key={link.name}
               href={link.href}
               onClick={() => setIsOpen(false)}
-              className={`flex items-center font-semibold px-4 py-1.5 rounded-xl text-base transition-colors ${
+              className={`flex items-center font-bold px-4 py-3 rounded-xl text-sm transition-colors ${
                 isActive(link.href)
-                  ? "text-[#0C4587] dark:text-blue-400 bg-blue-50 dark:bg-blue-900/30"
-                  : "text-gray-700 dark:text-gray-300 hover:text-[#0C4587] dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-900"
+                  ? "text-[#0C4587] dark:text-[#5EBC23] bg-blue-50 dark:bg-[#5EBC23]/10"
+                  : "text-gray-700 dark:text-gray-300 hover:text-[#0C4587] dark:hover:text-[#5EBC23] hover:bg-gray-50 dark:hover:bg-white/5"
               }`}
             >
               {link.icon}
@@ -251,45 +268,44 @@ export default function Navbar() {
             </Link>
           ))}
 
-          <div className="pt-4 border-t border-gray-100 dark:border-gray-900 space-y-2">
+          <div className="pt-4 mt-2 border-t border-gray-100 dark:border-white/10 space-y-2">
             {user ? (
               <>
-                <div className="px-4 py-2 bg-gray-50 dark:bg-gray-900 rounded-xl">
-                  <p className="text-sm font-medium text-gray-900 dark:text-white">
+                <div className="px-4 py-3 bg-gray-50 dark:bg-white/5 rounded-xl border border-gray-100 dark:border-white/5">
+                  <p className="text-sm font-bold text-gray-900 dark:text-white">
                     {user.name}
                   </p>
-                  <p className="text-xs text-gray-500 dark:text-gray-400">
+                  <p className="text-xs font-medium text-gray-500 dark:text-gray-400 mt-0.5">
                     {user.email}
                   </p>
-                  {/* <span className="inline-block mt-1 text-xs px-2 py-0.5 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 capitalize">
-                    {user.role}
-                  </span> */}
                 </div>
-                <Link
-                  href="/profile"
-                  onClick={() => setIsOpen(false)}
-                  className="flex w-full items-center justify-center space-x-2 px-4 py-2 rounded-xl bg-gray-100 dark:bg-gray-900 text-gray-700 dark:text-gray-300 font-medium"
-                >
-                  <User className="w-4 h-4" />
-                  <span>Profile</span>
-                </Link>
-                <button
-                  onClick={() => {
-                    logout();
-                    setIsOpen(false);
-                  }}
-                  className="flex w-full items-center justify-center space-x-2 px-4 py-2 rounded-xl bg-gray-100 dark:bg-gray-900 text-gray-700 dark:text-gray-300 font-medium"
-                >
-                  <LogOut className="w-4 h-4" />
-                  <span>Logout</span>
-                </button>
+                <div className="grid grid-cols-2 gap-2">
+                  <Link
+                    href="/profile"
+                    onClick={() => setIsOpen(false)}
+                    className="flex items-center justify-center space-x-2 px-4 py-2.5 rounded-xl bg-gray-50 dark:bg-white/5 text-gray-700 dark:text-gray-300 font-semibold text-sm hover:bg-gray-100 dark:hover:bg-white/10 transition-colors"
+                  >
+                    <User className="w-4 h-4" />
+                    <span>Profile</span>
+                  </Link>
+                  <button
+                    onClick={() => {
+                      logout();
+                      setIsOpen(false);
+                    }}
+                    className="flex items-center justify-center space-x-2 px-4 py-2.5 rounded-xl bg-red-50 dark:bg-red-500/10 text-red-600 dark:text-red-400 font-semibold text-sm hover:bg-red-100 dark:hover:bg-red-500/20 transition-colors"
+                  >
+                    <LogOut className="w-4 h-4" />
+                    <span>Logout</span>
+                  </button>
+                </div>
               </>
             ) : (
-              <>
+              <div className="grid grid-cols-2 gap-2">
                 <Link
                   href="/auth/login"
                   onClick={() => setIsOpen(false)}
-                  className="flex w-full items-center justify-center space-x-2 px-4 py-2 rounded-xl bg-gray-100 dark:bg-gray-900 text-gray-700 dark:text-gray-300 font-medium"
+                  className="flex items-center justify-center space-x-2 px-4 py-2.5 rounded-xl bg-gray-50 dark:bg-white/5 text-gray-700 dark:text-gray-300 font-semibold text-sm hover:bg-gray-100 dark:hover:bg-white/10 transition-colors"
                 >
                   <LogIn className="w-4 h-4" />
                   <span>Login</span>
@@ -297,17 +313,17 @@ export default function Navbar() {
                 <Link
                   href="/auth/register"
                   onClick={() => setIsOpen(false)}
-                  className="flex w-full items-center justify-center space-x-2 px-4 py-2 rounded-xl bg-gradient-to-r from-[#0C4587] to-[#0A3C73] text-white font-medium"
+                  className="flex items-center justify-center space-x-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-[#0C4587] to-[#0A3C73] text-white font-semibold text-sm shadow-md"
                 >
                   <User className="w-4 h-4" />
                   <span>Register</span>
                 </Link>
-              </>
+              </div>
             )}
             <Link
               href="/booking"
               onClick={() => setIsOpen(false)}
-              className="flex w-full items-center justify-center bg-gradient-to-r from-[#0C4587] to-[#0A3C73] text-white font-bold py-2 rounded-xl shadow-lg"
+              className="flex w-full mt-2 items-center justify-center bg-[#5EBC23] hover:bg-[#4CAF50] text-white font-black uppercase tracking-wider text-sm py-3.5 rounded-xl shadow-lg transition-colors"
             >
               Book Now
             </Link>
