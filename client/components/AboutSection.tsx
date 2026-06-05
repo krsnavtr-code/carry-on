@@ -102,7 +102,7 @@ export default function AboutSection() {
             <div className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-full w-max mb-3.5 shadow-sm transition-colors duration-300">
               <Sparkles className="w-3 h-3 text-[#5EBC23]" />
               <span className="text-[9px] font-black text-[#0C4587] dark:text-gray-200 uppercase tracking-widest">
-                About Trivixam
+                About Carry On
               </span>
             </div>
 
@@ -175,27 +175,6 @@ export default function AboutSection() {
                   More About Us
                 </span>
               </Link>
-
-              {/* Profile Block (Compacted) */}
-              <div className="flex items-center gap-3 group cursor-pointer">
-                <div className="relative">
-                  <img
-                    src="https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=200&auto=format&fit=crop"
-                    alt="Krishna Avtar"
-                    className="w-9 h-9 sm:w-10 sm:h-10 rounded-full object-cover border-2 border-gray-200 dark:border-gray-800 shadow-sm group-hover:border-[#0C4587] transition-colors duration-300"
-                  />
-                  <div className="absolute -bottom-0.5 -right-0.5 w-3.5 h-3.5 bg-[#5EBC23] border-2 border-gray-50 dark:border-gray-950 rounded-full"></div>
-                </div>
-
-                <div>
-                  <h4 className="font-black text-gray-900 dark:text-white leading-none text-xs sm:text-sm transition-colors duration-300">
-                    Krishna Avtar
-                  </h4>
-                  <p className="text-[9px] sm:text-[10px] font-bold text-gray-500 dark:text-gray-400 mt-1 uppercase tracking-widest transition-colors duration-300">
-                    CEO & Founder
-                  </p>
-                </div>
-              </div>
             </div>
           </div>
         </div>

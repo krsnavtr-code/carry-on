@@ -175,7 +175,7 @@ export default function HeroBanner(): React.ReactElement {
 
   return (
     <>
-      <section className="flex items-center justify-center pb-8 pt-20 md:pb-12 md:pt-20 relative overflow-hidden">
+      <section className="flex items-center justify-center min-h-[700px] pb-8 pt-20 md:pb-12 md:pt-20 relative overflow-hidden">
         {/* Background Image */}
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat -z-20"
@@ -203,7 +203,7 @@ export default function HeroBanner(): React.ReactElement {
               </span>
             </div>
 
-            <h1 className="text-2xl md:text-4xl lg:text-5xl font-black tracking-tight leading-tight text-white">
+            <h1 className="text-2xl md:text-4xl font-black tracking-tight leading-tight text-white">
               Drive Freedom With{" "}
               <span className="bg-gradient-to-r from-[#0C4587] via-blue-400 to-[#5EBC23] bg-clip-text text-transparent">
                 Carry-On

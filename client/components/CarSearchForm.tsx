@@ -82,7 +82,7 @@ export default function CarSearchForm(): React.ReactElement {
   };
 
   return (
-    <div className="w-full max-w-7xl mx-auto px-4 pt-5 sm:px-6 lg:px-8 relative z-30 mb-12 -mt-6 md:-mt-10">
+    <div className="w-full max-w-7xl mx-auto px-4 pt-5 sm:px-6 lg:px-8 relative z-30 mb-12 -mt-16 md:-mt-20">
       {/* Decorative Ambient Glow (Visible mostly in Dark Mode) */}
       <div className="absolute inset-0 bg-gradient-to-r from-[#0C4587]/20 to-[#5EBC23]/20 blur-3xl rounded-[3rem] -z-10 opacity-0 dark:opacity-100 transition-opacity duration-500" />
 

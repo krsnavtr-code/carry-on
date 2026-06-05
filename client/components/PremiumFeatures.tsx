@@ -67,7 +67,7 @@ export default function PremiumFeatures(): React.ReactElement {
              style={{ backgroundImage: 'radial-gradient(#000 1px, transparent 1px)', backgroundSize: '20px 20px' }} 
         />
 
-        <div className="relative z-10 flex flex-col lg:flex-row items-center p-6 sm:p-10 lg:p-12 gap-10 lg:gap-4">
+        <div className="relative z-10 flex flex-col lg:flex-row items-center p-3 md:p-6 lg:p-12 gap-10 lg:gap-4">
           
           {/* ========================================= */}
           {/* LEFT SIDE: TEXT & 3x2 FEATURE GRID        */}
@@ -83,7 +83,7 @@ export default function PremiumFeatures(): React.ReactElement {
             </div>
 
             {/* Heading */}
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-gray-900 dark:text-white leading-tight tracking-tight max-w-lg">
+            <h2 className="text-xl md:text-3xl font-black text-gray-900 dark:text-white leading-tight tracking-tight max-w-lg z-15">
               Thoughtfully crafted features for{" "}
               <span className="text-[#0C4587] dark:text-[#5EBC23]">
                 premium travel
@@ -96,7 +96,7 @@ export default function PremiumFeatures(): React.ReactElement {
             </p>
 
             {/* 3x2 Grid for Features */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4 mt-8">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4 mt-8 z-15">
               {featuresList.map((feature) => (
                 <div
                   key={feature.id}

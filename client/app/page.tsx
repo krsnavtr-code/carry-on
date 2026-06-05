@@ -7,6 +7,7 @@ import AboutSection from "@/components/AboutSection";
 import PopularRoutes from "@/components/PopularRoutes";
 import CoreBenefits from "@/components/CoreBenefits";
 import PremiumFeatures from "@/components/PremiumFeatures";
+import Testimonials from "@/components/TestimonialSection";
 
 export default function Home() {
   return (
@@ -33,6 +34,10 @@ export default function Home() {
 
         {/* 6. CORE BENEFITS & FEATURES SECTION */}
         <CoreBenefits />
+
+        {/* 7. TESTIMONIALS SECTION */}
+        <Testimonials />
+
       </div>
     </main>
   );

@@ -14,7 +14,6 @@ import {
   ArrowRight,
   ShieldCheck,
   ChevronRight,
-  SlidersHorizontal,
   RefreshCw,
   CheckCircle2,
   CircleDollarSign,
@@ -31,7 +30,7 @@ interface CarVehicle {
   seats: number;
   bags: number;
   pricePerDay: number;
-  imageText: string;
+  carImage: string; // Changed to hold actual car PNG URL
   isAvailable: boolean;
   tag?: string;
 }
@@ -46,7 +45,7 @@ interface FilterState {
 }
 
 export default function OurCarsPage(): React.ReactElement {
-  // 2. MASSIVE VERIFIED INVENTORY DATA (26 CARS COHESIVE INDEX)
+  // 2. MASSIVE VERIFIED INVENTORY DATA WITH REALISTIC IMAGES
   const carsInventory: CarVehicle[] = [
     {
       id: "car-01",
@@ -54,11 +53,12 @@ export default function OurCarsPage(): React.ReactElement {
       brand: "BMW",
       type: "Luxury",
       transmission: "Automatic",
-      fuel: "Petrol/Diesel",
+      fuel: "Petrol",
       seats: 5,
       bags: 3,
       pricePerDay: 12500,
-      imageText: "✨ Premium Cockpit Luxury",
+      carImage:
+        "https://purepng.com/public/uploads/large/purepng.com-bmw-x6-blue-carcarbmwvehicletransport-961524663189m2lse.png", // Example PNG
       isAvailable: true,
       tag: "Top Executive Tier",
     },
@@ -72,7 +72,8 @@ export default function OurCarsPage(): React.ReactElement {
       seats: 7,
       bags: 5,
       pricePerDay: 8500,
-      imageText: "🏔️ All-Terrain Terrain Dominance",
+      carImage:
+        "https://purepng.com/public/uploads/large/purepng.com-suv-carcarvehicletransportsuv-961524662194c6wte.png",
       isAvailable: true,
       tag: "Adventure Preferred",
     },
@@ -86,52 +87,13 @@ export default function OurCarsPage(): React.ReactElement {
       seats: 5,
       bags: 3,
       pricePerDay: 15000,
-      imageText: "⚡ Long Range Eco-Performance",
+      carImage:
+        "https://purepng.com/public/uploads/large/purepng.com-audi-sedan-carcarvehicletransportaudi-961524662489ziz3a.png",
       isAvailable: true,
       tag: "Eco Choice",
     },
     {
       id: "car-04",
-      name: "Maruti Suzuki Ciaz",
-      brand: "Suzuki",
-      type: "Sedan",
-      transmission: "Manual",
-      fuel: "Petrol",
-      seats: 5,
-      bags: 2,
-      pricePerDay: 3500,
-      imageText: "💼 Smooth Corporate Cruiser",
-      isAvailable: true,
-    },
-    {
-      id: "car-05",
-      name: "Hyundai i20 N-Line",
-      brand: "Hyundai",
-      type: "Economy",
-      transmission: "Automatic",
-      fuel: "Petrol",
-      seats: 5,
-      bags: 2,
-      pricePerDay: 2200,
-      imageText: "🚀 Hot Hatch City Agility",
-      isAvailable: true,
-      tag: "Best Fuel Economy",
-    },
-    {
-      id: "car-06",
-      name: "Audi e-tron",
-      brand: "Audi",
-      type: "Electric",
-      transmission: "Automatic",
-      fuel: "Electric (400km)",
-      seats: 5,
-      bags: 4,
-      pricePerDay: 18000,
-      imageText: "🔋 Futuristic Premium EV",
-      isAvailable: false,
-    },
-    {
-      id: "car-07",
       name: "Mercedes-Benz E-Class",
       brand: "Mercedes",
       type: "Luxury",
@@ -140,81 +102,13 @@ export default function OurCarsPage(): React.ReactElement {
       seats: 5,
       bags: 4,
       pricePerDay: 14500,
-      imageText: "👑 Ultimate Rear-Seat Comfort",
+      carImage:
+        "https://purepng.com/public/uploads/large/purepng.com-mercedes-benz-s-class-white-carcarvehicletransportmercedes-benz-961524662241hax8w.png",
       isAvailable: true,
       tag: "Chauffeur Preferred",
     },
     {
-      id: "car-08",
-      name: "Mahindra XUV700 AX7",
-      brand: "Mahindra",
-      type: "SUV",
-      transmission: "Automatic",
-      fuel: "Diesel",
-      seats: 7,
-      bags: 4,
-      pricePerDay: 4800,
-      imageText: "🤖 Smart Adrenox Cockpit",
-      isAvailable: true,
-      tag: "Family Favorite",
-    },
-    {
-      id: "car-09",
-      name: "Tata Nexon EV Max",
-      brand: "Tata",
-      type: "Electric",
-      transmission: "Automatic",
-      fuel: "Electric (350km)",
-      seats: 5,
-      bags: 2,
-      pricePerDay: 3800,
-      imageText: "⚡ Green Highway Cruiser",
-      isAvailable: true,
-      tag: "Top Rated EV",
-    },
-    {
-      id: "car-10",
-      name: "Honda City ZX",
-      brand: "Honda",
-      type: "Sedan",
-      transmission: "Automatic",
-      fuel: "Petrol",
-      seats: 5,
-      bags: 3,
-      pricePerDay: 3200,
-      imageText: "📈 Timeless Comfort & VTEC Power",
-      isAvailable: true,
-    },
-    {
-      id: "car-11",
-      name: "Maruti Suzuki Swift",
-      brand: "Suzuki",
-      type: "Economy",
-      transmission: "Manual",
-      fuel: "Petrol",
-      seats: 5,
-      bags: 1,
-      pricePerDay: 1500,
-      imageText: "🏙️ Ultra Compact City Zip",
-      isAvailable: true,
-      tag: "Pocket Friendly",
-    },
-    {
-      id: "car-12",
-      name: "Range Rover Sport",
-      brand: "Land Rover",
-      type: "Luxury",
-      transmission: "Automatic",
-      fuel: "Petrol",
-      seats: 5,
-      bags: 5,
-      pricePerDay: 25000,
-      imageText: "🏰 Royal Elegance on Wheels",
-      isAvailable: true,
-      tag: "Ultra Premium",
-    },
-    {
-      id: "car-13",
+      id: "car-05",
       name: "Hyundai Creta SX(O)",
       brand: "Hyundai",
       type: "SUV",
@@ -223,51 +117,12 @@ export default function OurCarsPage(): React.ReactElement {
       seats: 5,
       bags: 3,
       pricePerDay: 3500,
-      imageText: "🌅 Panoromic Skyway Explorer",
+      carImage:
+        "https://purepng.com/public/uploads/large/purepng.com-suv-carcarvehicletransportsuv-961524662194c6wte.png",
       isAvailable: true,
     },
     {
-      id: "car-14",
-      name: "BYD Atto 3",
-      brand: "BYD",
-      type: "Electric",
-      transmission: "Automatic",
-      fuel: "Electric (420km)",
-      seats: 5,
-      bags: 3,
-      pricePerDay: 6500,
-      imageText: "🌌 High-Tech Avant-Garde Cabin",
-      isAvailable: true,
-    },
-    {
-      id: "car-15",
-      name: "Hyundai Verna Turbo",
-      brand: "Hyundai",
-      type: "Sedan",
-      transmission: "Automatic",
-      fuel: "Petrol",
-      seats: 5,
-      bags: 3,
-      pricePerDay: 3800,
-      imageText: "🌪️ Aggressive Futuristic Performance",
-      isAvailable: true,
-      tag: "Trending Sedan",
-    },
-    {
-      id: "car-16",
-      name: "Tata Altroz iCNG",
-      brand: "Tata",
-      type: "Economy",
-      transmission: "Manual",
-      fuel: "CNG/Petrol",
-      seats: 5,
-      bags: 2,
-      pricePerDay: 1800,
-      imageText: "🛡️ 5-Star Safety Twin Cylinder",
-      isAvailable: true,
-    },
-    {
-      id: "car-17",
+      id: "car-06",
       name: "Porsche 911 Carrera",
       brand: "Porsche",
       type: "Luxury",
@@ -276,129 +131,10 @@ export default function OurCarsPage(): React.ReactElement {
       seats: 2,
       bags: 1,
       pricePerDay: 45000,
-      imageText: "🏁 Track-Ready Heritage Sports",
+      carImage:
+        "https://purepng.com/public/uploads/large/purepng.com-audi-sedan-carcarvehicletransportaudi-961524662489ziz3a.png",
       isAvailable: false,
       tag: "Exotic Asset",
-    },
-    {
-      id: "car-18",
-      name: "Kia Seltos Facelift",
-      brand: "Kia",
-      type: "SUV",
-      transmission: "Automatic",
-      fuel: "Diesel",
-      seats: 5,
-      bags: 3,
-      pricePerDay: 3900,
-      imageText: "✨ Sharp Sophisticated Urban SUV",
-      isAvailable: true,
-    },
-    {
-      id: "car-19",
-      name: "MG ZS EV",
-      brand: "MG",
-      type: "Electric",
-      transmission: "Automatic",
-      fuel: "Electric (380km)",
-      seats: 5,
-      bags: 3,
-      pricePerDay: 4500,
-      imageText: "🇬🇧 Connected British Tech EV",
-      isAvailable: true,
-    },
-    {
-      id: "car-20",
-      name: "Skoda Slavia 1.5 TSI",
-      brand: "Skoda",
-      type: "Sedan",
-      transmission: "Automatic",
-      fuel: "Petrol",
-      seats: 5,
-      bags: 4,
-      pricePerDay: 4200,
-      imageText: "🇩🇪 Solid European Performance",
-      isAvailable: true,
-      tag: "Enthusiast Choice",
-    },
-    {
-      id: "car-21",
-      name: "Renault Triber",
-      brand: "Renault",
-      type: "Economy",
-      transmission: "Manual",
-      fuel: "Petrol",
-      seats: 7,
-      bags: 2,
-      pricePerDay: 2000,
-      imageText: "🎒 Modular Budget 7-Seater Space",
-      isAvailable: true,
-    },
-    {
-      id: "car-22",
-      name: "Jaguar F-Pace",
-      brand: "Jaguar",
-      type: "Luxury",
-      transmission: "Automatic",
-      fuel: "Diesel",
-      seats: 5,
-      bags: 4,
-      pricePerDay: 19500,
-      imageText: "🐆 Aggressive Luxury Performance SUV",
-      isAvailable: true,
-    },
-    {
-      id: "car-23",
-      name: "Mahindra Scorpio-N",
-      brand: "Mahindra",
-      type: "SUV",
-      transmission: "Manual",
-      fuel: "Diesel",
-      seats: 7,
-      bags: 3,
-      pricePerDay: 4500,
-      imageText: "🦁 Big Daddy of SUVs",
-      isAvailable: true,
-    },
-    {
-      id: "car-24",
-      name: "BMW i4",
-      brand: "BMW",
-      type: "Electric",
-      transmission: "Automatic",
-      fuel: "Electric (480km)",
-      seats: 5,
-      bags: 3,
-      pricePerDay: 22000,
-      imageText: "⚡ Pure Luxury Grand Coupe EV",
-      isAvailable: true,
-      tag: "Elite EV",
-    },
-    {
-      id: "car-25",
-      name: "Volkswagen Virtus GT",
-      brand: "Volkswagen",
-      type: "Sedan",
-      transmission: "Automatic",
-      fuel: "Petrol",
-      seats: 5,
-      bags: 4,
-      pricePerDay: 4500,
-      imageText: "🔥 High-Octane German Driving Vibe",
-      isAvailable: true,
-      tag: "Top Speed Tier",
-    },
-    {
-      id: "car-26",
-      name: "Maruti Suzuki Baleno",
-      brand: "Suzuki",
-      type: "Economy",
-      transmission: "Automatic",
-      fuel: "Petrol",
-      seats: 5,
-      bags: 2,
-      pricePerDay: 1800,
-      imageText: "💎 Premium Comfort Budget Hatchback",
-      isAvailable: true,
     },
   ];
 
@@ -430,7 +166,7 @@ export default function OurCarsPage(): React.ReactElement {
 
   const segmentsList = ["All", "Luxury", "SUV", "Electric", "Sedan", "Economy"];
 
-  // 4. COMPUTATIONAL HIGH-PERFORMANCE SEARCH ENGINE FILTERS (`useMemo`)
+  // 4. COMPUTATIONAL HIGH-PERFORMANCE SEARCH ENGINE FILTERS
   const filteredCars = useMemo(() => {
     return carsInventory.filter((car) => {
       const matchesSearch =
@@ -459,60 +195,75 @@ export default function OurCarsPage(): React.ReactElement {
   }, [filters]);
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-gray-100 transition-colors duration-300 py-6 lg:py-10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
-        {/* CORE SECTION INTRO HERO HEADER */}
-        <div className="text-center space-y-4 max-w-5xl mx-auto">
-          <div className="inline-flex items-center space-x-2 bg-blue-50 dark:bg-blue-900/30 border border-blue-100 dark:border-blue-800/50 px-4 py-1.5 rounded-full shadow-sm">
-            <CarIcon className="w-4 h-4 text-[#5EBC23]" />
-            <span className="text-xs font-bold text-[#0C4587] dark:text-blue-300 tracking-wide uppercase">
-              Carry-On Live Fleet Inventory
-            </span>
-          </div>
-          <h1 className="text-4xl sm:text-5xl font-black tracking-tight text-gray-900 dark:text-white">
-            Explore Our{" "}
-            <span className="bg-gradient-to-r from-[#0C4587] to-[#5EBC23] bg-clip-text text-transparent">
-              Fleet
-            </span>
-          </h1>
-          <p className="text-sm font-medium">
-            Select from pristine economy hatchbacks, spacious family SUVs, to
-            ultra-premium luxury vehicles. Transparent pricing with verified
-            mechanical protection.
-          </p>
-          <div className="w-16 h-1 bg-gradient-to-r from-[#0C4587] to-[#5EBC23] mx-auto rounded-full" />
-        </div>
+    <div className="min-h-screen bg-gray-50 dark:bg-[#050B14] text-gray-900 dark:text-gray-100 transition-colors duration-300 pb-16">
+      {/* ========================================= */}
+      {/* HERO BANNER & FILTERS WIDGET SECTION      */}
+      {/* ========================================= */}
+      <section className="relative w-full pt-20 pb-24 md:pt-24 md:pb-32 overflow-hidden z-10">
+        {/* Parallax Background Image */}
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-fixed bg-no-repeat -z-30"
+          style={{
+            backgroundImage:
+              "url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=2000&auto=format&fit=crop')",
+          }}
+        />
 
-        {/* INTERACTIVE CAR FILTERS WIDGET CONTAINER */}
-        <div className="w-full bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl p-2 md:p-5 shadow-sm space-y-6">
-          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-5 border-b border-gray-200 dark:border-gray-800/60">
-            <div className="flex items-center space-x-3 w-full lg:w-auto">
-              <div className="relative w-full sm:w-80 flex items-center">
-                <Search className="absolute left-4 w-4 h-4 text-gray-400" />
+        {/* Frosted Glassmorphism Overlay */}
+        <div className="absolute inset-0 dark:bg-[#050B14]/15 backdrop-blur-[1px] transition-colors duration-300 -z-20" />
+
+        {/* Brand Radial Accents */}
+        <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-[#0C4587]/15 rounded-full blur-[100px] pointer-events-none -z-10" />
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10 relative z-10">
+          {/* INTRO HEADER */}
+          <div className="text-center space-y-4 max-w-3xl mx-auto drop-shadow-sm">
+            <div className="inline-flex items-center space-x-1.5 bg-white/80 dark:bg-gray-900/60 backdrop-blur-md border border-gray-200 dark:border-gray-800/80 px-3.5 py-1.5 rounded-full shadow-sm">
+              <CarIcon className="w-4 h-4 text-[#5EBC23]" />
+              <span className="text-[10px] font-black text-[#0C4587] dark:text-gray-200 tracking-widest uppercase">
+                Carry-On Live Fleet Inventory
+              </span>
+            </div>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight text-white leading-tight">
+              Explore Our{" "}
+              <span className="bg-gradient-to-r from-[#0C4587] to-[#5EBC23] bg-clip-text text-transparent">
+                Fleet
+              </span>
+            </h1>
+            <p className="text-sm font-semibold text-gray-300 max-w-2xl mx-auto">
+              Select from pristine economy hatchbacks to ultra-premium luxury
+              vehicles. Transparent pricing with verified mechanical protection.
+            </p>
+          </div>
+
+          {/* INTERACTIVE CAR FILTERS WIDGET */}
+          <div className="w-full backdrop-blur-xl border border-gray-200 dark:border-gray-800/80 rounded-lg p-2 sm:p-6 shadow-xl dark:shadow-2xl space-y-1 md:space-y-5 transition-colors duration-300">
+            {/* Top Search & Reset Row */}
+            <div className="flex flex-col sm:flex-row items-center justify-between gap-1 md:gap-4 pb-2 border-b border-gray-100 dark:border-gray-800/60">
+              <div className="relative w-full sm:max-w-md flex items-center group">
+                <Search className="absolute left-4 w-4 h-4 text-gray-400 group-focus-within:text-[#0C4587] transition-colors" />
                 <input
                   type="text"
                   name="searchQuery"
                   placeholder="Search brand or model..."
                   value={filters.searchQuery}
                   onChange={handleFilterChange}
-                  className="w-full bg-gray-50 dark:bg-gray-950 text-lg border border-gray-200 dark:border-gray-800 rounded-xl pl-11 pr-4 py-1.5 focus:outline-none focus:border-blue-500 text-gray-800 dark:text-gray-200"
+                  className="w-full bg-gray-950 text-sm font-semibold border border-gray-800 rounded-xl pl-11 pr-4 py-1.5 focus:outline-none focus:border-[#0C4587] focus:ring-1 focus:ring-[#0C4587] text-white transition-all"
                 />
               </div>
+
+              <button
+                type="button"
+                onClick={resetFilters}
+                className="w-full sm:w-auto inline-flex items-center justify-center space-x-1.5 text-[10px] font-black uppercase tracking-widest text-gray-500 hover:text-red-500 hover:border-red-200 transition-colors bg-gray-950 px-4 py-1.5 rounded-xl border border-gray-800 group"
+              >
+                <RefreshCw className="w-3.5 h-3.5 group-hover:rotate-180 transition-transform duration-500" />
+                <span>Reset Filters</span>
+              </button>
             </div>
 
-            <button
-              type="button"
-              onClick={resetFilters}
-              className="inline-flex items-center space-x-1.5 text-xs font-bold text-gray-400 hover:text-red-500 transition-colors bg-gray-50 dark:bg-gray-950 px-3.5 py-2 rounded-xl border border-gray-200 dark:border-gray-800/80 group self-end lg:self-auto"
-            >
-              <RefreshCw className="w-3.5 h-3.5 group-hover:rotate-180 transition-transform duration-300" />
-              <span>Reset Parameters</span>
-            </button>
-          </div>
-
-          {/* SEGMENT NAV TABS */}
-          <div className="space-y-2">
-            <div className="flex items-center space-x-2 overflow-x-auto pb-2 scrollbar-none w-full">
+            {/* SEGMENT NAV TABS */}
+            <div className="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none w-full hide-scroll">
               {segmentsList.map((cat) => (
                 <button
                   key={cat}
@@ -520,180 +271,199 @@ export default function OurCarsPage(): React.ReactElement {
                   onClick={() =>
                     setFilters((prev) => ({ ...prev, segment: cat }))
                   }
-                  className={`px-4 py-2.5 rounded-xl text-xs font-bold tracking-wide uppercase whitespace-nowrap transition-all border cursor-pointer ${
+                  className={`px-4 py-2 rounded-xl text-[11px] font-black tracking-widest uppercase whitespace-nowrap transition-all border cursor-pointer flex-shrink-0 ${
                     filters.segment === cat
-                      ? "bg-[#0C4587] text-white border-transparent shadow-md"
-                      : "bg-gray-50 dark:bg-gray-950 border-gray-200 dark:border-gray-800/80"
+                      ? "bg-gradient-to-r from-[#0C4587] to-[#0A3C73] text-white border-transparent shadow-md"
+                      : "bg-gray-950 border-gray-800 text-gray-400 hover:border-gray-300"
                   }`}
                 >
-                  {cat} Class
+                  {cat} {cat !== "All" && "Class"}
                 </button>
               ))}
             </div>
-          </div>
 
-          {/* MULTI-DROPDOWNS AND SLIDER SUB-GRID */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 pt-2">
-            <div className="space-y-2">
-              <label className="block text-[11px] font-black uppercase tracking-wider">
-                Transmission
-              </label>
-              <select
-                name="transmission"
-                value={filters.transmission}
-                onChange={handleFilterChange}
-                className="w-full bg-gray-50 dark:bg-gray-950 text-xs font-bold border border-gray-100 dark:border-gray-800 rounded-xl px-3.5 py-3.5 focus:outline-none focus:border-blue-500 text-gray-500"
-              >
-                <option value="All">All Drive Modes</option>
-                <option value="Automatic">Automatic (Comfort)</option>
-                <option value="Manual">Manual (Stick Shift)</option>
-              </select>
-            </div>
-            <div className="space-y-2">
-              <label className="block text-[11px] font-black uppercase tracking-wider">
-                Propulsion Node
-              </label>
-              <select
-                name="fuelType"
-                value={filters.fuelType}
-                onChange={handleFilterChange}
-                className="w-full bg-gray-50 dark:bg-gray-950 text-xs font-bold border border-gray-100 dark:border-gray-800 rounded-xl px-3.5 py-3.5 focus:outline-none focus:border-blue-500 text-gray-500"
-              >
-                <option value="All">All Fuel Categories</option>
-                <option value="Petrol">Petrol Assets</option>
-                <option value="Diesel">Diesel Heavy-Duty</option>
-                <option value="Electric">Electric EV</option>
-              </select>
-            </div>
-            <div className="space-y-2 sm:col-span-2 lg:col-span-1">
-              <div className="flex items-center justify-between text-[11px] font-black uppercase tracking-wider">
-                <span className="flex items-center">
-                  <CircleDollarSign className="w-3.5 h-3.5 mr-1.5" />{" "}
-                  Max Price Ceiling
-                </span>
-                <span className="text-[#5EBC23] bg-green-50 dark:bg-green-950/40 px-2 py-0.5 rounded-md font-mono">
-                  ≤ ₹{filters.maxPrice.toLocaleString("en-IN")}/d
-                </span>
-              </div>
-              <div className="pt-3 flex items-center space-x-3">
-                <span className="text-[10px] font-bold">
-                  ₹1.5K
-                </span>
-                <input
-                  type="range"
-                  name="maxPrice"
-                  min="1500"
-                  max="50000"
-                  step="500"
-                  value={filters.maxPrice}
+            {/* MULTI-DROPDOWNS AND SLIDER SUB-GRID */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 pt-2">
+              <div className="space-y-1.5">
+                <label className="block text-[10px] font-black uppercase tracking-widest text-gray-300 ml-1">
+                  Transmission
+                </label>
+                <select
+                  name="transmission"
+                  value={filters.transmission}
                   onChange={handleFilterChange}
-                  className="flex-1 h-1.5 bg-gray-100 dark:bg-gray-800 rounded-lg appearance-none cursor-pointer accent-[#0C4587]"
-                />
-                <span className="text-[10px] font-bold">
-                  ₹50K
-                </span>
+                  className="w-full bg-gray-950 text-xs font-bold border border-gray-800 rounded-xl px-3.5 py-3 focus:outline-none focus:border-[#0C4587] focus:ring-1 focus:ring-[#0C4587] text-gray-300 appearance-none cursor-pointer"
+                  style={{
+                    backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e")`,
+                    backgroundPosition: "right 0.5rem center",
+                    backgroundRepeat: "no-repeat",
+                    backgroundSize: "1.5em 1.5em",
+                  }}
+                >
+                  <option value="All">All Drive Modes</option>
+                  <option value="Automatic">Automatic (Comfort)</option>
+                  <option value="Manual">Manual (Stick Shift)</option>
+                </select>
+              </div>
+              <div className="space-y-1.5">
+                <label className="block text-[10px] font-black uppercase tracking-widest text-gray-300 ml-1">
+                  Fuel Type
+                </label>
+                <select
+                  name="fuelType"
+                  value={filters.fuelType}
+                  onChange={handleFilterChange}
+                  className="w-full bg-gray-950 text-xs font-bold border border-gray-800 rounded-xl px-3.5 py-3 focus:outline-none focus:border-[#0C4587] focus:ring-1 focus:ring-[#0C4587] text-gray-300 appearance-none cursor-pointer"
+                  style={{
+                    backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e")`,
+                    backgroundPosition: "right 0.5rem center",
+                    backgroundRepeat: "no-repeat",
+                    backgroundSize: "1.5em 1.5em",
+                  }}
+                >
+                  <option value="All">All Fuel Categories</option>
+                  <option value="Petrol">Petrol</option>
+                  <option value="Diesel">Diesel</option>
+                  <option value="Electric">Electric EV</option>
+                </select>
+              </div>
+              <div className="hidden space-y-1.5 sm:col-span-2 lg:col-span-1">
+                <div className="flex items-center justify-between text-[10px] font-black uppercase tracking-widest text-gray-300 px-1">
+                  <span className="flex items-center">
+                    <CircleDollarSign className="w-3.5 h-3.5 mr-1" /> Max Price
+                  </span>
+                  <span className="text-[#5EBC23] bg-green-50 dark:bg-green-950/40 px-2 py-0.5 rounded-md">
+                    ≤ ₹{filters.maxPrice.toLocaleString("en-IN")}/d
+                  </span>
+                </div>
+                <div className="pt-2 flex items-center space-x-3 bg-gray-50 dark:bg-gray-950 px-3.5 py-2.5 rounded-xl border border-gray-200 dark:border-gray-800">
+                  <span className="text-[10px] font-bold text-gray-800 dark:text-gray-200">
+                    1.5K
+                  </span>
+                  <input
+                    type="range"
+                    name="maxPrice"
+                    min="1500"
+                    max="50000"
+                    step="500"
+                    value={filters.maxPrice}
+                    onChange={handleFilterChange}
+                    className="flex-1 h-1 bg-gray-200 dark:bg-gray-700 rounded-lg appearance-none cursor-pointer accent-[#5EBC23]"
+                  />
+                  <span className="text-[10px] font-bold text-gray-800 dark:text-gray-200">
+                    50K
+                  </span>
+                </div>
               </div>
             </div>
-          </div>
 
-          <div className="pt-4 border-t border-gray-50 dark:border-gray-800/60 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-            <label className="relative flex items-center space-x-3 cursor-pointer select-none">
-              <input
-                type="checkbox"
-                name="onlyAvailable"
-                checked={filters.onlyAvailable}
-                onChange={handleFilterChange}
-                className="w-4 h-4 rounded-md bg-gray-50 dark:bg-gray-950 border border-gray-200 dark:border-gray-800 text-[#0C4587] focus:ring-0"
-              />
-              <span className="text-xs font-bold">
-                Hide Rented Assets (Show Only Instant Ready Cars)
-              </span>
-            </label>
-            <div className="text-[10px] font-black uppercase tracking-wider flex items-center bg-gray-50 dark:bg-gray-950 px-3 py-1.5 rounded-xl border border-dashed border-gray-200 dark:border-gray-800">
-              <CheckCircle2 className="w-3.5 h-3.5 mr-1.5 text-[#5EBC23]" />{" "}
-              Live Filter Core Active (Matched {filteredCars.length} Assets)
+            {/* BOTTOM FILTER FOOTER */}
+            <div className="pt-4 border-t border-gray-800/60 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+              <label className="relative flex items-center space-x-2.5 cursor-pointer select-none group">
+                <div className="relative flex items-center justify-center">
+                  <input
+                    type="checkbox"
+                    name="onlyAvailable"
+                    checked={filters.onlyAvailable}
+                    onChange={handleFilterChange}
+                    className="peer w-4 h-4 rounded border-gray-300 dark:border-gray-700 text-[#5EBC23] focus:ring-[#5EBC23] bg-white dark:bg-gray-900 cursor-pointer transition-all"
+                  />
+                </div>
+                <span className="text-[11px] font-bold text-gray-400 dark:text-gray-400 transition-colors">
+                  Hide Rented Assets (Show Only Ready Cars)
+                </span>
+              </label>
+              <div className="text-[9px] font-black uppercase tracking-widest flex items-center bg-gray-950 px-3 py-1.5 rounded-lg border border-dashed border-gray-700 text-gray-400">
+                <CheckCircle2 className="w-3.5 h-3.5 mr-1.5 text-[#5EBC23]" />{" "}
+                {filteredCars.length} Assets Found
+              </div>
             </div>
           </div>
         </div>
+      </section>
 
-        {/* VEHICLES DYNAMIC GRID CARDS DISPLAY */}
+      {/* ========================================= */}
+      {/* VEHICLES DYNAMIC GRID CARDS SECTION         */}
+      {/* ========================================= */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-10 relative z-20">
         {filteredCars.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
             {filteredCars.map((car) => (
               <div
                 key={car.id}
-                className="bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-900 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1 relative animate-fade-in"
+                className="bg-white dark:bg-[#0A1120] border border-gray-200 dark:border-gray-800 rounded-2xl p-4 sm:p-5 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1 relative"
               >
+                {/* Floating Tag */}
                 {car.tag && (
-                  <span className="absolute top-4 left-4 z-10 bg-gradient-to-r from-[#5EBC23] to-green-600 text-white text-[9px] uppercase font-black tracking-widest px-3 py-1 rounded-full shadow-sm">
-                    <Sparkles className="w-2.5 h-2.5 mr-1 text-yellow-200 fill-yellow-200 inline" />{" "}
+                  <span className="absolute top-4 left-4 z-20 bg-gradient-to-r from-[#0C4587] to-[#0A3C73] text-white text-[8px] sm:text-[9px] uppercase font-black tracking-widest px-2.5 py-1 rounded-full shadow-md border border-[#0C4587]">
+                    <Sparkles className="w-2.5 h-2.5 mr-1 text-yellow-300 fill-yellow-300 inline" />{" "}
                     {car.tag}
                   </span>
                 )}
 
-                <div>
-                  {/* Tailwind Custom Graphic Vector Placeholder Frame */}
-                  <div className="w-full h-48 bg-gradient-to-br from-gray-100 via-gray-50 to-gray-200 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950 border-b border-gray-50 dark:border-gray-800/50 flex flex-col items-center justify-center p-4 text-center group-hover:from-blue-50/20 group-hover:to-green-50/10 transition-colors">
-                    <CarIcon className="w-16 h-16 text-gray-300 dark:text-gray-800 group-hover:scale-105 group-hover:text-[#0C4587] dark:group-hover:text-blue-500/50 transition-all duration-300" />
-                    <span className="text-[11px] font-bold text-gray-400 dark:text-gray-500 mt-3 uppercase tracking-wider font-mono">
-                      {car.imageText}
+                {/* Status Badge Top Right */}
+                <span
+                  className={`absolute top-4 right-4 z-20 text-[9px] font-black px-2.5 py-1 rounded-full uppercase tracking-wider border ${
+                    car.isAvailable
+                      ? "bg-green-50 dark:bg-green-950/30 text-green-600 border-green-200/50 dark:border-green-900/30"
+                      : "bg-red-50 dark:bg-red-950/30 text-red-500 border-red-200/50 dark:border-red-900/30"
+                  }`}
+                >
+                  {car.isAvailable ? "Ready" : "Rented"}
+                </span>
+
+                {/* Car Image Area with transparent Background */}
+                <div className="relative w-full h-40 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900/50 dark:to-gray-950 border border-gray-100 dark:border-gray-800/50 rounded-xl mb-4 overflow-hidden flex items-center justify-center group-hover:border-[#5EBC23]/30 transition-colors">
+                  <img
+                    src={car.carImage}
+                    alt={car.name}
+                    className="w-[85%] h-auto object-contain drop-shadow-xl group-hover:scale-110 transition-transform duration-500 ease-out"
+                  />
+                </div>
+
+                <div className="space-y-4 flex-1 flex flex-col">
+                  {/* Title Block */}
+                  <div>
+                    <span className="text-[9px] font-black text-gray-700 dark:text-gray-400 uppercase tracking-widest block mb-0.5">
+                      {car.brand} • {car.type}
                     </span>
+                    <h3 className="text-base sm:text-lg font-black text-gray-900 dark:text-white tracking-tight leading-tight group-hover:text-[#0C4587] dark:group-hover:text-[#5EBC23] transition-colors truncate">
+                      {car.name}
+                    </h3>
                   </div>
 
-                  <div className="p-6 space-y-4">
-                    <div className="flex items-start justify-between">
-                      <div>
-                        <span className="text-xs font-bold text-[#5EBC23] uppercase tracking-widest">
-                          {car.type} Class
-                        </span>
-                        <h3 className="text-xl font-black text-gray-900 dark:text-white mt-0.5 tracking-tight group-hover:text-[#0C4587] dark:group-hover:text-blue-400 transition-colors">
-                          {car.name}
-                        </h3>
-                      </div>
-                      <span
-                        className={`text-[10px] font-black px-2.5 py-1 rounded-full uppercase tracking-wider border ${
-                          car.isAvailable
-                            ? "bg-green-50 dark:bg-green-950/30 text-green-600 border-green-200/50 dark:border-green-900/30"
-                            : "bg-red-50 dark:bg-red-950/30 text-red-500 border-red-200/50 dark:border-red-900/30"
-                        }`}
-                      >
-                        {car.isAvailable ? "Ready" : "Rented"}
-                      </span>
+                  {/* Specifications Grid */}
+                  <div className="grid grid-cols-2 gap-2 mt-auto">
+                    <div className="flex items-center space-x-2 bg-gray-100 dark:bg-gray-900/50 p-2 rounded-lg border border-gray-100 dark:border-gray-800 text-[10px] font-bold text-black dark:text-gray-400">
+                      <Gauge className="w-3.5 h-3.5 text-gray-400" />
+                      <span className="truncate">{car.transmission}</span>
                     </div>
-
-                    {/* Specifications Grid */}
-                    <div className="grid grid-cols-2 gap-3 pt-2 text-xs font-bold text-gray-500 dark:text-gray-400">
-                      <div className="flex items-center space-x-2 bg-gray-50 dark:bg-gray-950 p-2 rounded-xl border border-gray-100/50 dark:border-gray-800/40">
-                        <Gauge className="w-3.5 h-3.5 text-gray-400" />
-                        <span>{car.transmission}</span>
-                      </div>
-                      <div className="flex items-center space-x-2 bg-gray-50 dark:bg-gray-950 p-2 rounded-xl border border-gray-100/50 dark:border-gray-800/40">
-                        <Fuel className="w-3.5 h-3.5 text-gray-400" />
-                        <span className="truncate">{car.fuel}</span>
-                      </div>
-                      <div className="flex items-center space-x-2 bg-gray-50 dark:bg-gray-950 p-2 rounded-xl border border-gray-100/50 dark:border-gray-800/40">
-                        <Users className="w-3.5 h-3.5 text-gray-400" />
-                        <span>{car.seats} Seats</span>
-                      </div>
-                      <div className="flex items-center space-x-2 bg-gray-50 dark:bg-gray-950 p-2 rounded-xl border border-gray-100/50 dark:border-gray-800/40">
-                        <Briefcase className="w-3.5 h-3.5 text-gray-400" />
-                        <span>{car.bags} Bags Cap</span>
-                      </div>
+                    <div className="flex items-center space-x-2 bg-gray-100 dark:bg-gray-900/50 p-2 rounded-lg border border-gray-100 dark:border-gray-800 text-[10px] font-bold text-black dark:text-gray-400">
+                      <Fuel className="w-3.5 h-3.5 text-gray-400" />
+                      <span className="truncate">{car.fuel}</span>
+                    </div>
+                    <div className="flex items-center space-x-2 bg-gray-100 dark:bg-gray-900/50 p-2 rounded-lg border border-gray-100 dark:border-gray-800 text-[10px] font-bold text-black dark:text-gray-400">
+                      <Users className="w-3.5 h-3.5 text-gray-400" />
+                      <span>{car.seats} Seats</span>
+                    </div>
+                    <div className="flex items-center space-x-2 bg-gray-100 dark:bg-gray-900/50 p-2 rounded-lg border border-gray-100 dark:border-gray-800 text-[10px] font-bold text-black dark:text-gray-400">
+                      <Briefcase className="w-3.5 h-3.5 text-gray-400" />
+                      <span>{car.bags} Bags</span>
                     </div>
                   </div>
                 </div>
 
                 {/* Card Footer Block */}
-                <div className="p-6 pt-0 border-t border-gray-50 dark:border-gray-800/50 mt-4 flex items-center justify-between">
-                  <div>
-                    <span className="text-[10px] font-bold text-gray-400 uppercase block">
-                      Base Rental Rate
+                <div className="pt-4 border-t border-gray-100 dark:border-gray-800 mt-4 flex items-center justify-between">
+                  <div className="hidden">
+                    <span className="text-[9px] font-black text-gray-400 dark:text-gray-500 uppercase tracking-widest block leading-none mb-1">
+                      Daily Rate
                     </span>
                     <div className="flex items-baseline">
-                      <span className="text-2xl font-black text-gray-900 dark:text-white">
+                      <span className="text-lg font-black text-gray-900 dark:text-white tracking-tight">
                         ₹{car.pricePerDay.toLocaleString("en-IN")}
                       </span>
-                      <span className="text-xs font-bold text-gray-400">
+                      <span className="text-[9px] font-bold text-gray-500 ml-0.5">
                         /Day
                       </span>
                     </div>
@@ -705,15 +475,15 @@ export default function OurCarsPage(): React.ReactElement {
                         ? `/booking?carId=${encodeURIComponent(car.name)}`
                         : "#"
                     }
-                    className={`inline-flex items-center justify-center font-bold text-xs uppercase tracking-wider px-5 py-3.5 rounded-xl transition-all duration-300 group ${
+                    className={`inline-flex items-center justify-center font-black text-[10px] sm:text-xs uppercase tracking-wider px-4 py-2.5 rounded-xl transition-all duration-300 group/btn shadow-sm ${
                       car.isAvailable
-                        ? "bg-gradient-to-r from-[#0C4587] to-[#0A3C73] hover:from-[#5EBC23] hover:to-[#4CAF50] text-white shadow-md shadow-blue-900/10"
-                        : "bg-gray-100 dark:bg-gray-800 text-gray-400 dark:text-gray-600 cursor-not-allowed"
+                        ? "bg-gray-100 dark:bg-gray-800 hover:bg-[#5EBC23] dark:hover:bg-[#5EBC23] border border-gray-200 dark:border-gray-700 hover:border-[#5EBC23] text-gray-700 dark:text-gray-300 hover:text-white"
+                        : "bg-gray-50 dark:bg-gray-900 text-gray-400 dark:text-gray-600 border border-gray-100 dark:border-gray-800 cursor-not-allowed"
                     }`}
                   >
-                    {car.isAvailable ? "Reserve" : "Sold Out"}
+                    <span>{car.isAvailable ? "Reserve" : "Sold Out"}</span>
                     {car.isAvailable && (
-                      <ArrowRight className="w-3.5 h-3.5 ml-1.5 group-hover:translate-x-1 transition-transform" />
+                      <ArrowRight className="w-3.5 h-3.5 ml-1.5 group-hover/btn:translate-x-1 transition-transform" />
                     )}
                   </Link>
                 </div>
@@ -722,42 +492,48 @@ export default function OurCarsPage(): React.ReactElement {
           </div>
         ) : (
           /* Empty Filter State Case UI */
-          <div className="text-center py-20 bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-900 rounded-3xl max-w-xl mx-auto space-y-4 shadow-sm">
-            <Layers className="w-12 h-12 text-gray-300 mx-auto" />
-            <h3 className="text-lg font-bold text-gray-900 dark:text-white">
+          <div className="text-center py-20 bg-white dark:bg-[#0A1120] border border-gray-200 dark:border-gray-800 rounded-3xl max-w-xl mx-auto space-y-4 shadow-sm">
+            <Layers className="w-12 h-12 text-gray-300 dark:text-gray-700 mx-auto" />
+            <h3 className="text-lg font-black text-gray-900 dark:text-white tracking-tight">
               No Vehicles Match Criteria
             </h3>
-            <p className="text-xs sm:text-sm text-gray-400 max-w-xs mx-auto font-medium">
+            <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 max-w-sm mx-auto font-medium">
               We couldn't track any fleet items matching your filtered inputs.
-              Try resetting parameters.
+              Try adjusting the parameters or clearing the search.
             </p>
+            <button
+              onClick={resetFilters}
+              className="mt-4 px-6 py-2.5 bg-[#0C4587] text-white text-xs font-black uppercase tracking-wider rounded-xl hover:bg-[#5EBC23] transition-colors"
+            >
+              Reset Filters
+            </button>
           </div>
         )}
 
         {/* SECURITY FOOTNOTE BAR */}
-        <div className="bg-gradient-to-br from-[#0C4587]/5 via-transparent to-[#5EBC23]/5 border border-blue-100/30 dark:border-blue-900/20 rounded-2xl p-6 lg:p-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="mt-12 bg-white dark:bg-[#0A1120] border border-gray-200 dark:border-gray-800 rounded-2xl p-5 sm:p-6 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-sm">
           <div className="flex items-center space-x-3.5 text-left">
-            <div className="p-3 bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 rounded-xl flex-shrink-0 shadow-sm">
+            <div className="p-2.5 bg-green-50 dark:bg-green-900/20 border border-green-100 dark:border-green-800/30 rounded-xl flex-shrink-0">
               <ShieldCheck className="w-5 h-5 text-[#5EBC23]" />
             </div>
             <div>
-              <h4 className="font-bold text-gray-900 dark:text-white text-base">
-                Carry-On Assured Fleet Protection
+              <h4 className="font-black text-gray-900 dark:text-white text-sm sm:text-base">
+                Carry-On Assured Protection
               </h4>
-              <p className="text-xs sm:text-sm text-gray-400 dark:text-gray-500 font-medium">
-                Every inventory listing incorporates deep sterilization routines
-                and computerized diagnostic validation before checkout flags.
+              <p className="text-[10px] sm:text-xs text-gray-500 dark:text-gray-400 font-medium mt-0.5">
+                All vehicles undergo a 150-point diagnostic validation before
+                checkout.
               </p>
             </div>
           </div>
           <Link
             href="/terms"
-            className="text-xs sm:text-sm font-bold text-[#0C4587] dark:text-blue-400 hover:underline flex-shrink-0 flex items-center"
+            className="text-[10px] sm:text-xs font-black text-[#0C4587] dark:text-[#5EBC23] hover:underline flex-shrink-0 flex items-center tracking-wide uppercase"
           >
-            Review Operations Clause <ChevronRight className="w-4 h-4 ml-0.5" />
+            Review Terms <ChevronRight className="w-3.5 h-3.5 ml-0.5" />
           </Link>
         </div>
-      </div>
+      </section>
     </div>
   );
 }
