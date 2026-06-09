@@ -32,12 +32,12 @@ export default function AboutUs(): React.ReactElement {
   // Custom Statistics Data
   const stats = [
     {
-      value: "10K+",
-      label: "Happy Journeys",
+      value: "10+",
+      label: "Years of Excellence",
       color: "text-[#0C4587] dark:text-blue-400",
     },
-    { value: "250+", label: "Premium Fleet Cars", color: "text-[#5EBC23]" },
-    { value: "50+", label: "Airport Drop Hubs", color: "text-[#D48C3B]" },
+    { value: "10K+", label: "Happy Customers", color: "text-[#5EBC23]" },
+    { value: "18+", label: "Premium Fleet Cars", color: "text-[#D48C3B]" },
     { value: "24/7", label: "Active Road Support", color: "text-purple-500" },
   ];
 
@@ -114,9 +114,13 @@ export default function AboutUs(): React.ReactElement {
           <p
             className={`text-sm sm:text-base leading-relaxed font-semibold transition-colors duration-500 ${isScrolled ? "text-gray-700 dark:text-gray-300" : "text-gray-200"}`}
           >
-            Redefining modular mobility across the digital ecosystem. We deliver
-            scalable, premium, and hyper-reliable car rental pipelines for
-            corporate tours and personal vacations.
+            Celebrating{" "}
+            <span className="text-[#5EBC23] font-bold">
+              10 Years of Excellence
+            </span>{" "}
+            in redefining modular mobility across the digital ecosystem. We
+            deliver scalable, premium, and hyper-reliable car rental pipelines
+            for corporate tours and personal vacations.
           </p>
           <div className="w-16 h-1 bg-gradient-to-r from-[#0C4587] to-[#5EBC23] mx-auto rounded-full mt-4" />
         </div>
@@ -133,14 +137,16 @@ export default function AboutUs(): React.ReactElement {
               Driving Trust, <br /> Fueling Freedom.
             </h2>
             <p className="text-xs sm:text-sm leading-relaxed font-semibold text-gray-600 dark:text-gray-400">
-              Founded under the banner of scalable innovation,{" "}
+              Founded in <span className="text-[#0C4587] font-bold">2016</span>{" "}
+              under the banner of scalable innovation,{" "}
               <strong className="text-gray-900 dark:text-gray-200">
                 Carry-On Car Rental Pvt. Ltd.
               </strong>{" "}
-              bridges the gap between premium consumer comfort and smart
-              transportation systems. Whether you need a swift vehicle layout
-              for city-transits or a full SUV config for outstation family
-              trips, our ecosystem delivers optimized results.
+              celebrates a decade of excellence in bridging the gap between
+              premium consumer comfort and smart transportation systems. Whether
+              you need a swift vehicle layout for city-transits or a full SUV
+              config for outstation family trips, our ecosystem delivers
+              optimized results.
             </p>
             <ul className="space-y-3 pt-3">
               {[

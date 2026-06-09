@@ -64,8 +64,11 @@ export default function Footer() {
             </Link>
             <p className="text-gray-400 text-sm leading-relaxed max-w-sm font-medium">
               Your trusted partner for affordable, premium, and reliable car
-              rentals. Drive your dreams with flexible packages tailored just
-              for you.
+              rentals. Celebrating{" "}
+              <span className="text-[#5EBC23] font-bold">
+                10 Years of Excellence
+              </span>{" "}
+              in delivering exceptional mobility solutions across India.
             </p>
 
             {/* Social Icons (Glassmorphic) with Inline SVGs */}
@@ -241,6 +244,34 @@ export default function Footer() {
                 </button>
               </div>
             </form>
+          </div>
+        </div>
+
+        {/* ========================================= */}
+        {/* TRUST BADGE: 10 Years of Excellence       */}
+        {/* ========================================= */}
+        <div className="py-8 border-b border-white/10">
+          <div className="bg-gradient-to-r from-[#0C4587]/20 to-[#5EBC23]/20 border border-[#5EBC23]/30 rounded-2xl p-6 text-center relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-[#5EBC23]/10 rounded-full blur-3xl pointer-events-none" />
+            <div className="relative z-10">
+              <div className="inline-flex items-center justify-center space-x-3 mb-3">
+                <div className="w-12 h-12 bg-gradient-to-br from-[#0C4587] to-[#5EBC23] rounded-full flex items-center justify-center shadow-lg">
+                  <span className="text-white font-black text-xl">10</span>
+                </div>
+                <div className="text-left">
+                  <p className="text-white font-black text-lg leading-tight">
+                    Years of
+                  </p>
+                  <p className="text-[#5EBC23] font-black text-lg leading-tight">
+                    Excellence
+                  </p>
+                </div>
+              </div>
+              <p className="text-gray-300 text-xs font-semibold max-w-md mx-auto">
+                Trusted by 10,000+ customers across India since 2016. Premium
+                service, guaranteed satisfaction.
+              </p>
+            </div>
           </div>
         </div>
 

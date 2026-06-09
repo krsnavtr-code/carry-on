@@ -39,7 +39,7 @@ export default function PopularRoutes(): React.ReactElement {
       distance: "230 KM",
       duration: "3.5 Hours",
       carImage:
-        "https://purepng.com/public/uploads/large/purepng.com-mercedes-benz-s-class-white-carcarvehicletransportmercedes-benz-961524662241hax8w.png",
+        "https://www.trivixam.com/api/upload/file/hyundai-aura-09062026-1713.png",
       routeType: "Leisure",
       tag: "Weekend Favorite",
       popular: true,
@@ -51,7 +51,7 @@ export default function PopularRoutes(): React.ReactElement {
       distance: "38 KM",
       duration: "50 Mins",
       carImage:
-        "https://purepng.com/public/uploads/large/purepng.com-audi-sedan-carcarvehicletransportaudi-961524662489ziz3a.png",
+        "https://www.trivixam.com/api/upload/file/toyota-innova-crysta-09062026-1713.png",
       routeType: "Business",
       tag: "Flat Airport Rate",
     },
@@ -62,7 +62,7 @@ export default function PopularRoutes(): React.ReactElement {
       distance: "270 KM",
       duration: "5 Hours",
       carImage:
-        "https://purepng.com/public/uploads/large/purepng.com-suv-carcarvehicletransportsuv-961524662194c6wte.png",
+        "https://www.trivixam.com/api/upload/file/force-tempo-traveller--16-seater--09062026-1620.jpg",
       routeType: "Gateway",
       tag: "Corporate Circuit",
     },
@@ -73,7 +73,7 @@ export default function PopularRoutes(): React.ReactElement {
       distance: "245 KM",
       duration: "4.5 Hours",
       carImage:
-        "https://purepng.com/public/uploads/large/purepng.com-bmw-x6-blue-carcarbmwvehicletransport-961524663189m2lse.png",
+        "https://www.trivixam.com/api/upload/file/audi-09062026-1724.jpg",
       routeType: "Leisure",
       tag: "Himalayan Corridor",
       popular: true,
@@ -85,7 +85,7 @@ export default function PopularRoutes(): React.ReactElement {
       distance: "260 KM",
       duration: "4 Hours",
       carImage:
-        "https://purepng.com/public/uploads/large/purepng.com-audi-sedan-carcarvehicletransportaudi-961524662489ziz3a.png",
+        "https://www.trivixam.com/api/upload/file/honda-city-09062026-1723.jpg",
       routeType: "Business",
     },
     {
@@ -95,7 +95,7 @@ export default function PopularRoutes(): React.ReactElement {
       distance: "210 KM",
       duration: "4 Hours",
       carImage:
-        "https://purepng.com/public/uploads/large/purepng.com-suv-carcarvehicletransportsuv-961524662194c6wte.png",
+        "https://www.trivixam.com/api/upload/file/toyota-corolla-altis-09062026-1713.png",
       routeType: "Gateway",
     },
   ];

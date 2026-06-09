@@ -18,22 +18,11 @@ import {
   CheckCircle2,
   CircleDollarSign,
 } from "lucide-react";
-
-// 1. TYPESCRIPT INTERFACES FOR RIGID TYPE-SAFETY
-interface CarVehicle {
-  id: string;
-  name: string;
-  brand: string;
-  type: "Luxury" | "SUV" | "Sedan" | "Electric" | "Economy";
-  transmission: "Automatic" | "Manual";
-  fuel: string;
-  seats: number;
-  bags: number;
-  pricePerDay: number;
-  carImage: string; // Changed to hold actual car PNG URL
-  isAvailable: boolean;
-  tag?: string;
-}
+import {
+  officialFleet,
+  fleetCategories,
+  type CarVehicle,
+} from "../../data/fleetData";
 
 interface FilterState {
   searchQuery: string;
@@ -45,98 +34,8 @@ interface FilterState {
 }
 
 export default function OurCarsPage(): React.ReactElement {
-  // 2. MASSIVE VERIFIED INVENTORY DATA WITH REALISTIC IMAGES
-  const carsInventory: CarVehicle[] = [
-    {
-      id: "car-01",
-      name: "BMW 5 Series",
-      brand: "BMW",
-      type: "Luxury",
-      transmission: "Automatic",
-      fuel: "Petrol",
-      seats: 5,
-      bags: 3,
-      pricePerDay: 12500,
-      carImage:
-        "https://purepng.com/public/uploads/large/purepng.com-bmw-x6-blue-carcarbmwvehicletransport-961524663189m2lse.png", // Example PNG
-      isAvailable: true,
-      tag: "Top Executive Tier",
-    },
-    {
-      id: "car-02",
-      name: "Toyota Fortuner 4x4",
-      brand: "Toyota",
-      type: "SUV",
-      transmission: "Automatic",
-      fuel: "Diesel",
-      seats: 7,
-      bags: 5,
-      pricePerDay: 8500,
-      carImage:
-        "https://purepng.com/public/uploads/large/purepng.com-suv-carcarvehicletransportsuv-961524662194c6wte.png",
-      isAvailable: true,
-      tag: "Adventure Preferred",
-    },
-    {
-      id: "car-03",
-      name: "Tesla Model Y",
-      brand: "Tesla",
-      type: "Electric",
-      transmission: "Automatic",
-      fuel: "Electric (450km)",
-      seats: 5,
-      bags: 3,
-      pricePerDay: 15000,
-      carImage:
-        "https://purepng.com/public/uploads/large/purepng.com-audi-sedan-carcarvehicletransportaudi-961524662489ziz3a.png",
-      isAvailable: true,
-      tag: "Eco Choice",
-    },
-    {
-      id: "car-04",
-      name: "Mercedes-Benz E-Class",
-      brand: "Mercedes",
-      type: "Luxury",
-      transmission: "Automatic",
-      fuel: "Diesel",
-      seats: 5,
-      bags: 4,
-      pricePerDay: 14500,
-      carImage:
-        "https://purepng.com/public/uploads/large/purepng.com-mercedes-benz-s-class-white-carcarvehicletransportmercedes-benz-961524662241hax8w.png",
-      isAvailable: true,
-      tag: "Chauffeur Preferred",
-    },
-    {
-      id: "car-05",
-      name: "Hyundai Creta SX(O)",
-      brand: "Hyundai",
-      type: "SUV",
-      transmission: "Automatic",
-      fuel: "Petrol",
-      seats: 5,
-      bags: 3,
-      pricePerDay: 3500,
-      carImage:
-        "https://purepng.com/public/uploads/large/purepng.com-suv-carcarvehicletransportsuv-961524662194c6wte.png",
-      isAvailable: true,
-    },
-    {
-      id: "car-06",
-      name: "Porsche 911 Carrera",
-      brand: "Porsche",
-      type: "Luxury",
-      transmission: "Automatic",
-      fuel: "Petrol",
-      seats: 2,
-      bags: 1,
-      pricePerDay: 45000,
-      carImage:
-        "https://purepng.com/public/uploads/large/purepng.com-audi-sedan-carcarvehicletransportaudi-961524662489ziz3a.png",
-      isAvailable: false,
-      tag: "Exotic Asset",
-    },
-  ];
+  // 2. OFFICIAL CARRY-ON FLEET DATA (Imported from centralized data file)
+  const carsInventory: CarVehicle[] = officialFleet;
 
   // 3. CENTRALIZED INITIAL FILTER STATE
   const initialFilterState: FilterState = {
@@ -164,7 +63,7 @@ export default function OurCarsPage(): React.ReactElement {
     }
   };
 
-  const segmentsList = ["All", "Luxury", "SUV", "Electric", "Sedan", "Economy"];
+  const segmentsList = fleetCategories;
 
   // 4. COMPUTATIONAL HIGH-PERFORMANCE SEARCH ENGINE FILTERS
   const filteredCars = useMemo(() => {
@@ -173,7 +72,7 @@ export default function OurCarsPage(): React.ReactElement {
         car.name.toLowerCase().includes(filters.searchQuery.toLowerCase()) ||
         car.brand.toLowerCase().includes(filters.searchQuery.toLowerCase());
       const matchesSegment =
-        filters.segment === "All" || car.type === filters.segment;
+        filters.segment === "All" || car.category === filters.segment;
       const matchesTransmission =
         filters.transmission === "All" ||
         car.transmission === filters.transmission;
@@ -205,7 +104,7 @@ export default function OurCarsPage(): React.ReactElement {
           className="absolute inset-0 bg-cover bg-center bg-fixed bg-no-repeat -z-30"
           style={{
             backgroundImage:
-              "url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=2000&auto=format&fit=crop')",
+              "url('https://www.trivixam.com/api/upload/file/all-car-page-top-image-08062026-1253.jpeg')",
           }}
         />
 
@@ -215,25 +114,36 @@ export default function OurCarsPage(): React.ReactElement {
         {/* Brand Radial Accents */}
         <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-[#0C4587]/15 rounded-full blur-[100px] pointer-events-none -z-10" />
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10 relative z-10">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 space-y-10 relative z-10">
           {/* INTRO HEADER */}
-          <div className="text-center space-y-4 max-w-3xl mx-auto drop-shadow-sm">
+          <div className="text-center space-y-2 max-w-4xl mx-auto drop-shadow-sm">
             <div className="inline-flex items-center space-x-1.5 bg-white/80 dark:bg-gray-900/60 backdrop-blur-md border border-gray-200 dark:border-gray-800/80 px-3.5 py-1.5 rounded-full shadow-sm">
               <CarIcon className="w-4 h-4 text-[#5EBC23]" />
               <span className="text-[10px] font-black text-[#0C4587] dark:text-gray-200 tracking-widest uppercase">
                 Carry-On Live Fleet Inventory
               </span>
             </div>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight text-white leading-tight">
-              Explore Our{" "}
-              <span className="bg-gradient-to-r from-[#0C4587] to-[#5EBC23] bg-clip-text text-transparent">
-                Fleet
-              </span>
-            </h1>
-            <p className="text-sm font-semibold text-gray-300 max-w-2xl mx-auto">
-              Select from pristine economy hatchbacks to ultra-premium luxury
-              vehicles. Transparent pricing with verified mechanical protection.
-            </p>
+            <div className="bg-white/70 dark:bg-[#050B14]/70 backdrop-blur-md border border-white/40 dark:border-gray-800/60 p-3 md:p-8 rounded-[1.5rem] shadow-2xl max-w-4xl mx-auto text-center relative overflow-hidden group">
+              {/* Subtle Background Glow inside the box */}
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-32 bg-[#5EBC23]/10 rounded-full blur-3xl pointer-events-none" />
+
+              <h1 className="text-2xl sm:text-5xl md:text-6xl font-black tracking-tight text-gray-900 dark:text-white leading-tight drop-shadow-sm relative z-10">
+                Explore Our{" "}
+                <span className="bg-gradient-to-r from-[#0C4587] to-[#5EBC23] bg-clip-text text-transparent drop-shadow-sm">
+                  Fleet
+                </span>
+              </h1>
+
+              <p className="text-sm sm:text-base font-semibold text-gray-700 dark:text-gray-300 max-w-2xl mx-auto mt-5 relative z-10">
+                Celebrating{" "}
+                <span className="text-[#5EBC23] font-bold">
+                  10 Years of Excellence
+                </span>
+                . Select from pristine economy hatchbacks to ultra-premium
+                luxury vehicles. Transparent pricing with verified mechanical
+                protection.
+              </p>
+            </div>
           </div>
 
           {/* INTERACTIVE CAR FILTERS WIDGET */}
@@ -425,7 +335,7 @@ export default function OurCarsPage(): React.ReactElement {
                   {/* Title Block */}
                   <div>
                     <span className="text-[9px] font-black text-gray-700 dark:text-gray-400 uppercase tracking-widest block mb-0.5">
-                      {car.brand} • {car.type}
+                      {car.brand} • {car.category}
                     </span>
                     <h3 className="text-base sm:text-lg font-black text-gray-900 dark:text-white tracking-tight leading-tight group-hover:text-[#0C4587] dark:group-hover:text-[#5EBC23] transition-colors truncate">
                       {car.name}

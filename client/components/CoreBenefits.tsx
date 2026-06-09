@@ -41,7 +41,7 @@ export default function CoreBenefits(): React.ReactElement {
       ],
       // Mechanic / Engine checking thematic image
       bgImage:
-        "https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?q=80&w=1000&auto=format&fit=crop",
+        "https://www.trivixam.com/api/upload/file/toyota-innova-hycross-09062026-1713.png",
     },
     {
       id: "feat-02",
@@ -57,23 +57,23 @@ export default function CoreBenefits(): React.ReactElement {
       ],
       // Luxury car interior / dashboard thematic image
       bgImage:
-        "https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?q=80&w=1000&auto=format&fit=crop",
+        "https://www.trivixam.com/api/upload/file/contact-09062026-1550.jpg",
     },
     {
       id: "feat-03",
       icon: <Clock className="w-5 h-5 text-white" />,
-      title: "24/7 Road & Flight Synchronizations",
-      badge: "Always Active",
+      title: "10+ Years of Proven Excellence",
+      badge: "Trusted Since 2016",
       description:
-        "Our backend maps live flight data channels. If your arrival terminal triggers an advance or delay flag, our dispatch loops adapt automatically.",
+        "A decade of delivering exceptional mobility solutions. Our track record speaks for itself with thousands of satisfied customers across India.",
       bulletPoints: [
-        "60-Minutes complementary lounge wait time",
-        "Real-time terminal chauffeur track link",
-        "Instant breakdown backup vehicle delivery",
+        "10,000+ successful journeys completed",
+        "98% customer satisfaction rate",
+        "Award-winning service standards",
       ],
-      // Airport terminal / Night drive thematic image
+      // Professional team / office thematic image
       bgImage:
-        "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=1000&auto=format&fit=crop",
+        "https://www.trivixam.com/api/upload/file/bmw-09062026-1713.png",
     },
     {
       id: "feat-04",
@@ -89,7 +89,7 @@ export default function CoreBenefits(): React.ReactElement {
       ],
       // Open road / Highway driving thematic image
       bgImage:
-        "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=1000&auto=format&fit=crop",
+        "https://www.trivixam.com/api/upload/file/toyota-etios-09062026-1713.png",
     },
   ];
 

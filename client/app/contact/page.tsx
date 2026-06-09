@@ -110,7 +110,7 @@ export default function ContactUs(): React.ReactElement {
         style={{
           // Ek premium communication/support or desk background image
           backgroundImage:
-            "url('https://www.trivixam.com/api/upload/file/banner-31052026-0808.png')",
+            "url('https://www.trivixam.com/api/upload/file/contact-09062026-1550.jpg')",
         }}
       />
 
@@ -149,7 +149,11 @@ export default function ContactUs(): React.ReactElement {
           <p
             className={`text-sm sm:text-base font-semibold transition-colors duration-500 ${isScrolled ? "text-gray-700 dark:text-gray-300" : "text-gray-200"}`}
           >
-            Have queries regarding automated rental pricing, corporate
+            Celebrating{" "}
+            <span className="text-[#5EBC23] font-bold">
+              10 Years of Excellence
+            </span>
+            . Have queries regarding automated rental pricing, corporate
             structures, or fleet configurations? Drop a prompt message to the
             team at{" "}
             <strong

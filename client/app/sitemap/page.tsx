@@ -90,7 +90,7 @@ export default function SitemapPage() {
         style={{
           // Abstract/Contract related subtle background
           backgroundImage:
-            "url('https://www.trivixam.com/api/upload/file/banner-31052026-0808.png')",
+            "url('https://www.trivixam.com/api/upload/file/terms---conditions-09062026-1524.jpeg')",
         }}
       />
 
@@ -119,7 +119,7 @@ export default function SitemapPage() {
             </span>
           </div>
           <h1
-            className={`text-4xl sm:text-5xl font-black tracking-tight leading-tight transition-colors duration-500 ${isScrolled ? "text-gray-900 dark:text-white" : "text-white"}`}
+            className={`text-2xl sm:text-5xl font-black tracking-tight leading-tight transition-colors duration-500 ${isScrolled ? "text-gray-900 dark:text-white" : "text-white"}`}
           >
             Website{" "}
             <span className="bg-gradient-to-r from-[#0C4587] to-[#5EBC23] bg-clip-text text-transparent drop-shadow-md">

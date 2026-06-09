@@ -97,16 +97,16 @@ export default function Navbar() {
                   isActive(link.href)
                     ? isScrolled
                       ? "text-[#0C4587] dark:text-[#5EBC23] bg-[#0C4587]/10 dark:bg-[#5EBC23]/10"
-                      : "text-white bg-white/20 backdrop-blur-md shadow-inner shadow-white/10"
+                      : "text-gray-900 bg-white/20 backdrop-blur-md shadow-inner shadow-white/10"
                     : isScrolled
                       ? "text-gray-600 dark:text-gray-300 hover:text-[#0C4587] dark:hover:text-[#5EBC23] hover:bg-gray-100 dark:hover:bg-white/5"
-                      : "text-gray-200 hover:text-white hover:bg-white/10"
+                      : "text-black hover:text-gray-900 hover:bg-white/10"
                 } group`}
               >
                 {link.name}
                 <span
                   className={`absolute bottom-0.5 left-4 right-4 h-[2px] rounded-full transition-transform duration-300 ${
-                    isScrolled ? "bg-[#5EBC23]" : "bg-white"
+                    isScrolled ? "bg-[#5EBC23]" : "bg-gray-900"
                   } ${
                     isActive(link.href)
                       ? "scale-x-100"
@@ -125,7 +125,7 @@ export default function Navbar() {
               className={`p-2 rounded-xl transition-all duration-300 cursor-pointer ${
                 isScrolled
                   ? "bg-gray-100 dark:bg-white/5 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-white/10"
-                  : "bg-white/10 text-white hover:bg-white/20 backdrop-blur-sm border border-white/20"
+                  : "bg-white/10 text-black hover:bg-white/20 backdrop-blur-sm border border-white/20"
               }`}
               aria-label="Toggle theme"
             >
@@ -144,7 +144,7 @@ export default function Navbar() {
                   className={`flex items-center space-x-2 px-3 py-1.5 rounded-xl transition-all duration-300 ${
                     isScrolled
                       ? "bg-gray-100 dark:bg-white/5 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-white/10"
-                      : "bg-white/10 text-white hover:bg-white/20 backdrop-blur-sm border border-white/20"
+                      : "bg-white/10 text-black hover:bg-white/20 backdrop-blur-sm border border-white/20"
                   }`}
                 >
                   <User className="w-4 h-4" />
@@ -187,7 +187,7 @@ export default function Navbar() {
                 className={`flex items-center space-x-1.5 px-3 py-1.5 rounded-xl transition-all duration-300 font-semibold text-sm ${
                   isScrolled
                     ? "text-[#0C4587] dark:text-gray-300 hover:text-[#0C4587] dark:hover:text-white bg-blue-50 dark:bg-white/5 hover:bg-blue-100 dark:hover:bg-white/10"
-                    : "bg-white/10 text-white hover:bg-white/20 backdrop-blur-sm border border-white/20"
+                    : "bg-white/10 text-black hover:bg-white/20 backdrop-blur-sm border border-white/20"
                 }`}
               >
                 <LogIn className="w-4 h-4" />
@@ -215,7 +215,7 @@ export default function Navbar() {
               className={`p-2 rounded-xl transition-all duration-300 ${
                 isScrolled
                   ? "bg-gray-100 dark:bg-white/5 text-gray-600 dark:text-gray-300"
-                  : "bg-white/10 text-white border border-white/20 backdrop-blur-sm"
+                  : "bg-white/10 text-black border border-white/20 backdrop-blur-sm"
               }`}
             >
               {theme === "light" ? (
@@ -230,7 +230,7 @@ export default function Navbar() {
               className={`p-2 rounded-xl transition-all duration-300 ${
                 isScrolled
                   ? "bg-gray-100 dark:bg-white/5 text-gray-700 dark:text-gray-300"
-                  : "bg-white/10 text-white border border-white/20 backdrop-blur-sm"
+                  : "bg-white/10 text-black border border-white/20 backdrop-blur-sm"
               }`}
             >
               {isOpen ? (

@@ -152,11 +152,10 @@ export default function TestimonialsSection(): React.ReactElement {
           </div>
 
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-black tracking-tight text-gray-900 dark:text-white leading-tight">
-            Trusted by{" "}
             <span className="bg-gradient-to-r from-[#0C4587] to-[#5EBC23] bg-clip-text text-transparent">
-              Thousands
+              10 Years
             </span>{" "}
-            Everyday
+            of Trusted Service
           </h2>
           <p className="text-xs sm:text-sm font-medium text-gray-600 dark:text-gray-400 max-w-lg mx-auto">
             Don't just take our word for it. Read what our premium clients have

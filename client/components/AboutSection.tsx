@@ -116,9 +116,13 @@ export default function AboutSection() {
 
             {/* Description */}
             <p className="mt-3.5 text-xs sm:text-sm font-semibold text-gray-600 dark:text-gray-400 leading-relaxed max-w-lg transition-colors duration-300">
-              With years of industry experience, we deliver reliable car rental
-              solutions focused on comfort, transparency, and exceptional
-              service.
+              With{" "}
+              <span className="text-[#0C4587] font-bold">
+                10+ years of industry experience
+              </span>
+              , we deliver reliable car rental solutions focused on comfort,
+              transparency, and exceptional service. Trusted by thousands across
+              India since 2016.
             </p>
 
             {/* Custom Themed Accordion */}

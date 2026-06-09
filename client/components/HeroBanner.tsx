@@ -15,11 +15,12 @@ import {
   Star,
   X,
 } from "lucide-react";
+import { officialFleet, type CarVehicle } from "../data/fleetData";
 
 interface FleetSegment {
   id: string;
   name: string;
-  type: string;
+  category: string;
   tagline: string;
   price: string;
   bgGradient: string;
@@ -29,33 +30,34 @@ interface FleetSegment {
 export default function HeroBanner(): React.ReactElement {
   const router = useRouter();
 
+  // Featured cars from official fleet (one from each main category)
   const segments: FleetSegment[] = [
     {
       id: "seg-1",
-      name: "BMW 5 Series",
-      type: "Luxury",
-      tagline: "✨ Absolute Elite Corporate Comfort",
-      price: "₹12,500",
+      name: "Mercedes-Benz",
+      category: "Luxury",
+      tagline: "✨ VIP Executive Luxury Experience",
+      price: "₹15,000",
       bgGradient: "from-blue-600/10 via-indigo-500/5",
       rating: "4.9",
     },
     {
       id: "seg-2",
-      name: "Toyota Fortuner 4x4",
-      type: "SUV",
-      tagline: "🏔️ Built to Dominate All Indian Terrains",
-      price: "₹8,500",
+      name: "Toyota Innova Crysta",
+      category: "SUV & MUV",
+      tagline: "🏔️ Premium Group Travel Comfort",
+      price: "₹4,500",
       bgGradient: "from-emerald-600/10 via-green-500/5",
-      rating: "4.7",
+      rating: "4.8",
     },
     {
       id: "seg-3",
-      name: "Tesla Model Y",
-      type: "Electric",
-      tagline: "⚡ High-Performance Smart Autonomous Driving",
-      price: "₹15,000",
+      name: "Toyota Etios",
+      category: "Sedan",
+      tagline: "💰 Budget-Friendly Reliable Choice",
+      price: "₹1,800",
       bgGradient: "from-cyan-600/10 via-teal-500/5",
-      rating: "4.8",
+      rating: "4.7",
     },
   ];
 
@@ -144,7 +146,7 @@ export default function HeroBanner(): React.ReactElement {
         <div className="bg-black/20 p-2.5 rounded-lg border border-white/20 text-[10px] font-bold text-gray-200 flex justify-between items-center">
           <span>Selected Allocation Frame:</span>
           <span className="text-[#5EBC23] uppercase font-mono font-black">
-            {activeSegment.type} Class
+            {activeSegment.category} Class
           </span>
         </div>
 
@@ -178,15 +180,23 @@ export default function HeroBanner(): React.ReactElement {
       <section className="flex items-center justify-center min-h-[700px] pb-8 pt-20 md:pb-12 md:pt-20 relative overflow-hidden">
         {/* Background Image */}
         <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat -z-20"
+          className="absolute hidden sm:block h-full w-full inset-0 bg-cover bg-center bg-no-repeat -z-20"
           style={{
             backgroundImage:
-              "url('https://www.trivixam.com/api/upload/file/banner-31052026-0808.png')",
+              "url('https://www.trivixam.com/api/upload/file/car-rental-home-page-image-08062026-1745.jpeg')",
+          }}
+        />
+
+        <div
+          className="absolute sm:hidden inset-0 bg-cover bg-center bg-no-repeat -z-20"
+          style={{
+            backgroundImage:
+              "url('https://www.trivixam.com/api/upload/file/car-rental-home-page-image-08062026-1759.jpeg')",
           }}
         />
 
         {/* Dark Overlay */}
-        <div className="absolute inset-0 bg-black/40 dark:bg-black/60 -z-10" />
+        <div className="absolute inset-0 bg-black/15 dark:bg-black/10 -z-10" />
 
         {/* Dynamic Background Sync Shader */}
         <div
@@ -211,9 +221,12 @@ export default function HeroBanner(): React.ReactElement {
             </h1>
 
             <p className="text-xs sm:text-sm md:text-base font-medium max-w-lg leading-relaxed text-gray-200">
-              Eliminate paperwork hurdles. Access immaculate vehicles across
-              single-day transits, weekly getaways, or monthly commercial
-              subscription infrastructures.
+              Celebrating{" "}
+              <span className="text-[#5EBC23] font-bold">
+                10 Years of Excellence
+              </span>{" "}
+              in premium mobility. Access immaculate vehicles across India with
+              zero paperwork hurdles.
             </p>
 
             <div className="space-y-2.5 pt-1">
@@ -231,7 +244,7 @@ export default function HeroBanner(): React.ReactElement {
                         : "bg-white/20 dark:bg-white/10 text-white hover:bg-white/30 dark:hover:bg-white/20 backdrop-blur-sm border border-white/30"
                     }`}
                   >
-                    {seg.type}
+                    {seg.category}
                   </button>
                 ))}
               </div>
