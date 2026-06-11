@@ -110,7 +110,8 @@ export default function ContactUs(): React.ReactElement {
         style={{
           // Ek premium communication/support or desk background image
           backgroundImage:
-            "url('https://www.trivixam.com/api/upload/file/contact-09062026-1550.jpg')",
+            "url('https://www.trivixam.com/api/upload/file/contact-page-11062026-0817.jpeg')",
+          backgroundColor: "#f8fafc",
         }}
       />
 
@@ -118,8 +119,8 @@ export default function ContactUs(): React.ReactElement {
       <div
         className={`absolute inset-0 transition-all duration-700 ease-in-out -z-20 ${
           isScrolled
-            ? "bg-white/55 dark:bg-[#050B14]/80 backdrop-blur-[3px]"
-            : "bg-black/30 dark:bg-[#050B14]/40 backdrop-blur-[2px]"
+            ? "bg-white/45 dark:bg-[#050B14]/70 backdrop-blur-[3px]"
+            : "bg-black/15 dark:bg-[#050B14]/30 backdrop-blur-[2px]"
         }`}
       />
 

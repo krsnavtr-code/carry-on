@@ -231,7 +231,7 @@ function BookingFormContent() {
           className="absolute inset-0 bg-cover bg-center bg-fixed bg-no-repeat -z-30"
           style={{
             backgroundImage:
-              "url('https://images.unsplash.com/photo-1494976388531-d1058494cdd8?q=80&w=2000&auto=format&fit=crop')",
+              "url('https://www.trivixam.com/api/upload/file/book-page-11062026-0855.png')",
           }}
         />
         {/* Frosted Overlay */}
@@ -332,7 +332,7 @@ function BookingFormContent() {
         style={{
           // Luxury Car Dashboard/Interior for booking vibe
           backgroundImage:
-            "url('https://www.trivixam.com/api/upload/file/banner-31052026-0808.png')",
+            "url('https://www.trivixam.com/api/upload/file/book-page-11062026-0855.png')",
         }}
       />
       <div className="absolute inset-0 bg-white/15 dark:bg-[#050B14]/20 backdrop-blur-[2px] transition-colors duration-300 -z-20" />

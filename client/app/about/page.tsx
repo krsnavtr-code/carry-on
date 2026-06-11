@@ -75,7 +75,7 @@ export default function AboutUs(): React.ReactElement {
         style={{
           // Premium mountain road/driving image
           backgroundImage:
-            "url('https://images.unsplash.com/photo-1493246507139-91e8fad9978e?q=80&w=2000&auto=format&fit=crop')",
+            "url('https://www.trivixam.com/api/upload/file/about-page-11062026-0812.jpeg')",
         }}
       />
 
