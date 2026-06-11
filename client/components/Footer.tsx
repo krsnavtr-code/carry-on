@@ -90,7 +90,7 @@ export default function Footer() {
                       <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
                     </svg>
                   ),
-                  href: "#",
+                  href: "https://www.facebook.com/profile.php?id=61589860846640",
                   color: "hover:bg-[#1877F2] hover:border-[#1877F2]",
                 },
                 {
@@ -118,7 +118,7 @@ export default function Footer() {
                       <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
                     </svg>
                   ),
-                  href: "#",
+                  href: "https://www.instagram.com/carryoncarrental1/",
                   color: "hover:bg-[#E4405F] hover:border-[#E4405F]",
                 },
                 {
@@ -137,7 +137,7 @@ export default function Footer() {
                       <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5 2.8 11.1 2.8 11.1s1.4.1 2.8-.3C2 8.3 2 4 2 4s1.5 1.5 3 1.8C3.5 4.3 5 2 8 2.5c3.2.5 5.8 2.8 6.5 6 1.1-.3 2.1-.9 2.9-1.5-.2 1-1 1.8-1.7 2.3 1.1-.1 2.1-.4 3-.8z"></path>
                     </svg>
                   ),
-                  href: "#",
+                  href: "https://x.com/carryoncar1",
                   color: "hover:bg-[#1DA1F2] hover:border-[#1DA1F2]",
                 },
                 {
@@ -158,7 +158,7 @@ export default function Footer() {
                       <circle cx="4" cy="4" r="2"></circle>
                     </svg>
                   ),
-                  href: "#",
+                  href: "https://www.linkedin.com/in/carry-on-car-rental-b50955415/",
                   color: "hover:bg-[#0A66C2] hover:border-[#0A66C2]",
                 },
               ].map((social, index) => (

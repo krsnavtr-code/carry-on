@@ -7,6 +7,10 @@ import AboutSection from "@/components/AboutSection";
 import PopularRoutes from "@/components/PopularRoutes";
 import CoreBenefits from "@/components/CoreBenefits";
 import PremiumFeatures from "@/components/PremiumFeatures";
+import CorporateSolutions from "@/components/CorporateSolutions";
+import CorporateClients from "@/components/CorporateClients";
+import CorporateFleet from "@/components/CorporateFleet";
+import CorporatePricing from "@/components/CorporatePricing";
 import Testimonials from "@/components/TestimonialSection";
 
 export default function Home() {
@@ -35,9 +39,20 @@ export default function Home() {
         {/* 6. CORE BENEFITS & FEATURES SECTION */}
         <CoreBenefits />
 
-        {/* 7. TESTIMONIALS SECTION */}
-        <Testimonials />
+        {/* 7. CORPORATE SOLUTIONS SECTION */}
+        <CorporateSolutions />
 
+        {/* 8. CORPORATE CLIENTS SECTION */}
+        <CorporateClients />
+
+        {/* 9. CORPORATE FLEET SECTION */}
+        <CorporateFleet />
+
+        {/* 10. CORPORATE PRICING SECTION */}
+        {/* <CorporatePricing /> */}
+
+        {/* 11. TESTIMONIALS SECTION */}
+        <Testimonials />
       </div>
     </main>
   );

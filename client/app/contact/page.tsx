@@ -75,8 +75,8 @@ export default function ContactUs(): React.ReactElement {
     {
       icon: <Phone className="w-5 h-5 text-[#5EBC23]" />,
       title: "Call Us 24/7",
-      detail: "+91 9084407615",
-      href: "tel:+919084407615",
+      detail: "+91 83830 17006",
+      href: "tel:+918383017006",
     },
     {
       icon: <Mail className="w-5 h-5 text-[#0C4587] dark:text-blue-400" />,
@@ -87,7 +87,7 @@ export default function ContactUs(): React.ReactElement {
     {
       icon: <MapPin className="w-5 h-5 text-[#D48C3B]" />,
       title: "Main Hub Location",
-      detail: "Sector-63, Noida, UP, India",
+      detail: "Sector-63, Noida 201301",
       href: "#",
     },
     {
