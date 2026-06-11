@@ -32,21 +32,21 @@ export default function TestimonialsSection(): React.ReactElement {
       name: "Rajat Sharma",
       role: "Corporate Executive",
       avatar:
-        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=150&auto=format&fit=crop",
+        "https://www.trivixam.com/api/upload/file/vinay-29032026-0432.jpg",
       rating: 5,
       review:
         "Carry On Car Rental Pvt. Ltd. has completely transformed my business travels. The cars are impeccably clean, and the zero surge pricing policy is a lifesaver for our company budget.",
     },
-    {
-      id: "review-02",
-      name: "Sneha Kapoor",
-      role: "Travel Blogger",
-      avatar:
-        "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=150&auto=format&fit=crop",
-      rating: 5,
-      review:
-        "Booked a Fortuner for our Dehradun trip. The 150-point mechanical check they promise is real. The car performed flawlessly in the hills. Highly recommended!",
-    },
+    // {
+    //   id: "review-02",
+    //   name: "Sneha Kapoor",
+    //   role: "Travel Blogger",
+    //   avatar:
+    //     "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=150&auto=format&fit=crop",
+    //   rating: 5,
+    //   review:
+    //     "Booked a Fortuner for our Dehradun trip. The 150-point mechanical check they promise is real. The car performed flawlessly in the hills. Highly recommended!",
+    // },
     {
       id: "review-03",
       name: "Vikram Malhotra",
@@ -62,7 +62,7 @@ export default function TestimonialsSection(): React.ReactElement {
       name: "Aarti Desai",
       role: "Event Planner",
       avatar:
-        "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=150&auto=format&fit=crop",
+        "https://www.trivixam.com/api/upload/file/khushi-23012026-1346.jpeg",
       rating: 5,
       review:
         "We rent luxury sedans for our VIP guests. The seamless booking process and professional chauffeurs make Carry On our only choice for premium transport.",
@@ -72,7 +72,7 @@ export default function TestimonialsSection(): React.ReactElement {
       name: "Karan Singh",
       role: "Software Architect",
       avatar:
-        "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=150&auto=format&fit=crop",
+        "https://www.trivixam.com/api/upload/file/gemini_generated_image_nn9jyrnn9jyrnn9j-23012026-1807.png",
       rating: 5,
       review:
         "Transparent pricing is their best feature. What I saw on the checkout page was exactly what I paid. No hidden tolls, no surprise taxes. Very ethical business.",
