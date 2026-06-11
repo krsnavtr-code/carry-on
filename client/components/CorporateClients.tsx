@@ -16,37 +16,31 @@ export default function CorporateClients(): React.ReactElement {
       id: "client-1",
       name: "TechCorp India",
       industry: "Technology",
-      logo: "https://via.placeholder.com/150x80/0C4587/FFFFFF?text=TechCorp",
+      logo: "https://www.trivixam.com/api/upload/file/techcorp-india-11062026-1028.png",
     },
     {
       id: "client-2",
       name: "Global Finance Ltd",
       industry: "Banking & Finance",
-      logo: "https://via.placeholder.com/150x80/5EBC23/FFFFFF?text=GlobalFin",
+      logo: "https://www.trivixam.com/api/upload/file/global-finance-ltd-11062026-1028.jpg",
     },
     {
       id: "client-3",
       name: "PharmaCare Solutions",
       industry: "Healthcare",
-      logo: "https://via.placeholder.com/150x80/0C4587/FFFFFF?text=PharmaCare",
-    },
-    {
-      id: "client-4",
-      name: "Manufacturing Pro",
-      industry: "Manufacturing",
-      logo: "https://via.placeholder.com/150x80/5EBC23/FFFFFF?text=MfgPro",
+      logo: "https://www.trivixam.com/api/upload/file/pharmacare-solutions-11062026-1028.png",
     },
     {
       id: "client-5",
       name: "ConsultHub Global",
       industry: "Consulting",
-      logo: "https://via.placeholder.com/150x80/0C4587/FFFFFF?text=ConsultHub",
+      logo: "https://www.trivixam.com/api/upload/file/consulthub-global-11062026-1028.png",
     },
     {
       id: "client-6",
       name: "RetailMax Chain",
       industry: "Retail",
-      logo: "https://via.placeholder.com/150x80/5EBC23/FFFFFF?text=RetailMax",
+      logo: "https://www.trivixam.com/api/upload/file/retailmax-chain-11062026-1028.png",
     },
   ];
 
@@ -102,7 +96,7 @@ export default function CorporateClients(): React.ReactElement {
 
         {/* Client Logos Grid */}
         <div className="bg-white dark:bg-[#0A1120] border border-gray-200 dark:border-gray-800 rounded-2xl p-6 md:p-8 shadow-sm">
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 items-center">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 items-center">
             {clients.map((client) => (
               <div
                 key={client.id}
